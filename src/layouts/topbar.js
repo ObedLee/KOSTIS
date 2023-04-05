@@ -1,3 +1,5 @@
+import property from '../property.js';
+
 import * as React from 'react';
 import { styled, alpha} from '@mui/material/styles';
 import Box from '@mui/material/Box';
@@ -9,7 +11,6 @@ import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
 
-const drawerWidth = 240;
 
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== 'open',
@@ -18,11 +19,11 @@ const AppBar = styled(MuiAppBar, {
     easing: theme.transitions.easing.sharp,
     duration: theme.transitions.duration.leavingScreen,
   }),
-  backgroundColor: "#fff",
-  color:"#383838",
+  backgroundColor: property.backColor,
+  color: property.mainColor,
   ...(open && {
-    width: `calc(100% - ${drawerWidth}px)`,
-    marginLeft: `${drawerWidth}px`,
+    width: `calc(100% - ${property.drawerWidth}px)`,
+    marginLeft: `${property.drawerWidth}px`,
     transition: theme.transitions.create(['margin', 'width'], {
       easing: theme.transitions.easing.easeOut,
       duration: theme.transitions.duration.enteringScreen,
@@ -33,9 +34,9 @@ const AppBar = styled(MuiAppBar, {
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.common.white, 0.15),
+  backgroundColor: alpha(property.subColor, 0.15),
   '&:hover': {
-    backgroundColor: alpha(theme.palette.common.white, 0.25),
+    backgroundColor: alpha(property.subColor, 0.25),
   },
   marginRight: theme.spacing(2),
   marginLeft: 0,
@@ -71,7 +72,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function Appbar({open, setOpen}) {
+export default function Topbar({open, setOpen}) {
 
   const handleDrawerOpen = () => {
     setOpen(true);

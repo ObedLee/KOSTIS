@@ -4,6 +4,8 @@ import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
+import property from '../property.js';
+
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
@@ -11,14 +13,13 @@ import ListItemText from '@mui/material/ListItemText';
 import AddIcon from '@mui/icons-material/Add';
 import EqualizerRoundedIcon from '@mui/icons-material/EqualizerRounded';
 
-const drawerWidth = 240;
-
 const StyledDrawer = styled(Drawer)(({ theme }) => ({
-    width: drawerWidth,
+    width: property.drawerWidth,
     flexShrink: 0,
-    color:"#383838",
+    color: property.mainColor,
+    marginTop:'70px',
     '& .MuiDrawer-paper': {
-      width: drawerWidth,
+      width: property.drawerWidth,
       boxSizing: 'border-box',
     }
   }));
@@ -27,12 +28,13 @@ const StyledDrawer = styled(Drawer)(({ theme }) => ({
     display: 'flex',
     alignItems: 'center',
     padding: theme.spacing(0, 1),
+    color: property.mainColor,
     // necessary for content to be below app bar
     ...theme.mixins.toolbar,
     // /justifyContent: 'flex-end',
   }));
 
-export default function Sidebar({open, setOpen}) {
+export default function Sidebar({open}) {
 
     return(
         <StyledDrawer variant="persistent" anchor="left" open={open}>
@@ -43,7 +45,7 @@ export default function Sidebar({open, setOpen}) {
           </Typography>
         </DrawerHeader>
         <Divider />
-        <List>
+        <List sx={{color:property.mainColor}}>
           {['데이터1', '데이터2', '데이터3','데이터4', '데이터5', '데이터6'].map((text, index) => (
             <ListItem key={text} disablePadding>
               <ListItemButton>
