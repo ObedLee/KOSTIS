@@ -1,7 +1,7 @@
 import property from '../property.js';
 
 import * as React from 'react';
-import { styled, alpha} from '@mui/material/styles';
+import { styled, alpha } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
 import MuiAppBar from '@mui/material/AppBar';
@@ -20,7 +20,7 @@ const AppBar = styled(MuiAppBar, {
     duration: theme.transitions.duration.leavingScreen,
   }),
   backgroundColor: property.backColor,
-  color: property.mainColor,
+  color: property.txtColor,
   ...(open && {
     width: `calc(100% - ${property.drawerWidth}px)`,
     marginLeft: `${property.drawerWidth}px`,
@@ -34,15 +34,15 @@ const AppBar = styled(MuiAppBar, {
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(property.subColor, 0.15),
-  '&:hover': {
-    backgroundColor: alpha(property.subColor, 0.25),
-  },
+  backgroundColor: alpha(property.white, 1),
+  // '&:hover': {
+  //   backgroundColor: alpha(property.white, 1),
+  // },
   marginRight: theme.spacing(2),
   marginLeft: 0,
   width: '100%',
   [theme.breakpoints.up('sm')]: {
-    marginLeft: theme.spacing(3),
+    marginLeft: theme.spacing(1),
     width: 'auto',
   },
 }));
@@ -66,11 +66,13 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
     transition: theme.transitions.create('width'),
     width: '100%',
-    [theme.breakpoints.up('md')]: {
-      width: '20ch',
-    },
-  },
-}));
+    [theme.breakpoints.up('sm')]: {
+      width: '17ch',
+      '&:focus': {
+        width: '33ch',
+      },
+    }
+}}));
 
 export default function Topbar({open, setOpen}) {
 
