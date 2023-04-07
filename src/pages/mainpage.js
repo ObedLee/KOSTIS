@@ -1,6 +1,6 @@
-import Topbar from './topbar';
-import Sidebar from './sidebar';
-import Mainview from './mainview';
+import Topbar from '../layouts/topbar';
+import Sidebar from '../layouts/sidebar';
+import Mainview from '../layouts/mainview';
 
 import { useState } from 'react';
 

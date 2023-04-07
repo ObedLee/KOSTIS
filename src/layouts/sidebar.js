@@ -1,4 +1,4 @@
-import property from '../property.js';
+import property from '../store/property.js';
 
 import * as React from 'react';
 import { styled } from '@mui/material/styles';
@@ -12,6 +12,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import AddIcon from '@mui/icons-material/Add';
 import EqualizerRoundedIcon from '@mui/icons-material/EqualizerRounded';
+import KeyboardArrowDownRoundedIcon from '@mui/icons-material/KeyboardArrowDownRounded';
 
 const StyledDrawer = styled(Drawer)(({ theme }) => ({
     width: property.drawerWidth,
@@ -33,15 +34,23 @@ const StyledDrawer = styled(Drawer)(({ theme }) => ({
     marginBottom: '10px',
     color: property.txtColor,
     // necessary for content to be below app bar
-    ...theme.mixins.toolbar,
+    //...theme.mixins.toolbar,
+    minHeight: '54px'
     // /justifyContent: 'flex-end',
   }));
 
   const StyledPaper = styled(Paper)(({ theme }) => ({
     margin:'10px',
     color: property.txtColor,
+    borderRadius: property.borderRadius,
   }));
   
+  const StyledListItem = styled(ListItem)(({ theme }) => ({
+    '&:hover': {
+      backgroundColor: property.lightColor,
+      color: property.white
+    },
+  }));
 
 export default function Sidebar({open}) {
 
@@ -49,22 +58,25 @@ export default function Sidebar({open}) {
       <StyledDrawer variant="persistent" anchor="left" open={open}>
         <StyledPaper  elevation={0} sx={{height:'100vh'}}>
         <DrawerHeader>
-        <EqualizerRoundedIcon sx={{ml: 2, mr: 1}}/>
-          <Typography variant="h6" noWrap component="div" sx={{ mr:'auto'}}>
+        <EqualizerRoundedIcon sx={{ml: '10px', mt:"auto", fontSize: 40, color:property.mainColor}}/>
+          <Typography variant="h6" noWrap component="div" sx={{ml:'10px', mr:'auto', mt:"auto"}}>
             KOSTIS
           </Typography>
         </DrawerHeader>
         <List>
           {['데이터1', '데이터2', '데이터3','데이터4', '데이터5', '데이터6'].map((text, index) => (
             <StyledPaper>
-            <ListItem key={text} disablePadding>
+            <StyledListItem key={text} disablePadding>
               <ListItemButton>
                 <ListItemIcon>
                   <AddIcon/>
                 </ListItemIcon>
                 <ListItemText primary={text} />
+                <ListItemIcon>
+                  <KeyboardArrowDownRoundedIcon sx={{ml:"auto"}}/>
+                </ListItemIcon>
               </ListItemButton>
-            </ListItem>
+            </StyledListItem>
             </StyledPaper>
           ))}
         </List>

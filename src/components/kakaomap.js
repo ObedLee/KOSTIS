@@ -2,14 +2,16 @@ import {useEffect} from "react";
 import geomap from "../assets/geomap.json";
 import Paper from '@mui/material/Paper';
 import { styled } from '@mui/material/styles';
-import property from "../property";
+import property from "../store/property";
+import './style/kakaomap.css'
 
 const { kakao } = window;
 
 const Map = styled(Paper)(({ theme }) => ({
     width: "400px", 
     height: "680px", 
-    marginRight:'10px'
+    marginRight:'10px',
+    borderRadius: property.borderRadius,
   }));
 
 export default function Kakaomap(props) {
@@ -21,11 +23,12 @@ export default function Kakaomap(props) {
         var areas = [];
 
         for(let i=0; i<geomapPolygon.features.length;i++){
-            
+            // lat, lng 뽑아내기
+            const areaInfo = {name:"",path:[]};
+            const temp = []
             for(let j=0; j<geomapPolygon.features[i].geometry.coordinates.length; j++)
             {
-                            // lat, lng 뽑아내기
-                const areaInfo = {name:"",path:[]};
+
                 //console.log(geomapPolygon.features[i].geometry.coordinates.length)
                 areaInfo.name = geomapPolygon.features[i].properties.CTP_KOR_NM;
                 const sectionGeomap = [];
@@ -33,9 +36,10 @@ export default function Kakaomap(props) {
                 for(let k=0; k<geomapPolygon.features[i].geometry.coordinates[j].length; k++){
                     sectionGeomap.push(new kakao.maps.LatLng(geomapPolygon.features[i].geometry.coordinates[j][k][1], geomapPolygon.features[i].geometry.coordinates[j][k][0]));
                 }
-                areaInfo.path = sectionGeomap;
-                areas.push(areaInfo);
+                temp.push(sectionGeomap)
             }
+            areaInfo.path = [...temp];
+            areas.push(areaInfo);
         }
         // 객체 다 만듦.
 
@@ -71,10 +75,10 @@ export default function Kakaomap(props) {
             kakao.maps.event.addListener(polygon, 'mouseover', function(mouseEvent) {
                 polygon.setOptions({fillColor: property.mainColor});
 
-                // customOverlay.setContent('<div class="area">' + area.name + '</div>');
+                customOverlay.setContent('<div class="area">' + area.name + '</div>');
 
-                // customOverlay.setPosition(mouseEvent.latLng);
-                // customOverlay.setMap(map);
+                customOverlay.setPosition(mouseEvent.latLng);
+                customOverlay.setMap(map);
             });
 
             // 다각형에 mousemove 이벤트를 등록하고 이벤트가 발생하면 커스텀 오버레이의 위치를 변경합니다
@@ -91,7 +95,7 @@ export default function Kakaomap(props) {
 
             // 다각형에 click 이벤트를 등록하고 이벤트가 발생하면 다각형의 이름과 면적을 인포윈도우에 표시합니다
             kakao.maps.event.addListener(polygon, 'click', function(mouseEvent) {
-                    //클릭이벤트
+                //클릭이벤트
             });
         }
 

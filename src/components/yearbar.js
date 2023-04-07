@@ -1,7 +1,7 @@
 import { styled } from '@mui/material/styles'
 import Slider from '@mui/material/Slider';
 import { Paper } from '@mui/material';
-import property from '../property';
+import property from '../store/property';
 
 const StyledPaper = styled(Paper)(({ theme }) => ({
   width: '400px',
@@ -9,6 +9,7 @@ const StyledPaper = styled(Paper)(({ theme }) => ({
   padding: '8px 20px 0px 20px',
   marginTop: '10px',
   color: property.txtColor,
+  borderRadius: property.borderRadius,
 }));
 
 const StyledSlider = styled(Slider)({

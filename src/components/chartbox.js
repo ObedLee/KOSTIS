@@ -1,4 +1,4 @@
-import property from '../property';
+import property from '../store/property';
 
 import * as React from 'react';
 import { styled } from '@mui/material/styles';
@@ -17,7 +17,8 @@ const Chart = styled(Paper)(({ theme }) => ({
     height: '240px',
     //width: '400px',
     textAlign: 'center',
-    color: property.txtColor
+    color: property.txtColor,
+    borderRadius: property.borderRadius,
 }));
 
 export default function Chartbox() {

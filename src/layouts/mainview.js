@@ -1,4 +1,4 @@
-import property from '../property.js';
+import property from '../store/property.js';
 import Kakaomap from '../components/kakaomap.js';
 import Yearbar from '../components/yearbar.js';
 import Chartbox from '../components/chartbox.js';

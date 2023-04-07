@@ -1,4 +1,4 @@
-import property from '../property.js';
+import property from '../store/property.js';
 
 import * as React from 'react';
 import { styled, alpha } from '@mui/material/styles';
@@ -34,10 +34,10 @@ const AppBar = styled(MuiAppBar, {
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(property.white, 1),
-  // '&:hover': {
-  //   backgroundColor: alpha(property.white, 1),
-  // },
+  backgroundColor: alpha(property.white, 0.7),
+  '&:hover': {
+    backgroundColor: alpha(property.white, 1),
+  },
   marginRight: theme.spacing(2),
   marginLeft: 0,
   width: '100%',
