@@ -1,5 +1,7 @@
-import {useEffect} from "react";
+import {useEffect, useState } from "react";
 import geomap from "../assets/geomap.json";
+import geocity from "../assets/geocity.json";
+import geocenter from "../assets/geocenter.json";
 import Paper from '@mui/material/Paper';
 import { styled } from '@mui/material/styles';
 import property from "../store/property";
@@ -15,45 +17,87 @@ const Map = styled(Paper)(({ theme }) => ({
   }));
 
 export default function Kakaomap(props) {
-  
-    let geomapPolygon = JSON.parse(JSON.stringify(geomap));
+
+    const [zoom, setZoom] = useState(false)
+    const [cent, setCent] = useState([35.880147491722404, 127.7250280907668])
+    const [level, setLevel] = useState(13)
+    const [sido, setSido] = useState()
+
 
     useEffect(() => {
-        // 객체 만드는 과정
+        let geoPoly
+        zoom ? geoPoly = JSON.parse(JSON.stringify(geocity)) : geoPoly = JSON.parse(JSON.stringify(geomap))
+        // const geoPoly = JSON.parse(JSON.stringify(geomap));
+        // const geoPoly= JSON.parse(JSON.stringify(geocity));
+        const geocentPos = JSON.parse(JSON.stringify(geocenter));
+
+        // 객체 생성
         var areas = [];
 
-        for(let i=0; i<geomapPolygon.features.length;i++){
-            // lat, lng 뽑아내기
-            const areaInfo = {name:"",path:[]};
-            const temp = []
-            for(let j=0; j<geomapPolygon.features[i].geometry.coordinates.length; j++)
-            {
+        function setgeomapPoly(){
+            for(let i=0; i<geoPoly.features.length;i++){
+                // lat, lng 뽑아내기
+                const areaInfo = {name:"",path:[]};
+                const area = []
 
-                //console.log(geomapPolygon.features[i].geometry.coordinates.length)
-                areaInfo.name = geomapPolygon.features[i].properties.CTP_KOR_NM;
-                const sectionGeomap = [];
+                areaInfo.name = geoPoly.features[i].properties.CTP_KOR_NM
 
-                for(let k=0; k<geomapPolygon.features[i].geometry.coordinates[j].length; k++){
-                    sectionGeomap.push(new kakao.maps.LatLng(geomapPolygon.features[i].geometry.coordinates[j][k][1], geomapPolygon.features[i].geometry.coordinates[j][k][0]));
+                for(let j=0; j<geoPoly.features[i].geometry.coordinates.length; j++)
+                {
+                    
+                    const sectionGeomap = [];
+
+                    for(let k=0; k<geoPoly.features[i].geometry.coordinates[j].length; k++){
+                        sectionGeomap.push(new kakao.maps.LatLng(geoPoly.features[i].geometry.coordinates[j][k][1], geoPoly.features[i].geometry.coordinates[j][k][0]));
+                    }
+                    area.push(sectionGeomap)
                 }
-                temp.push(sectionGeomap)
-            }
-            areaInfo.path = [...temp];
-            areas.push(areaInfo);
+                areaInfo.path = [...area];
+                areas.push(areaInfo);
+            } 
         }
-        // 객체 다 만듦.
 
+        function setgeocityPoly(){
+            for(let i=0; i<geoPoly.features.length;i++){
+                if (geoPoly.features[i].properties.sidonm !== sido) continue
+
+                // lat, lng 뽑아내기
+                const areaInfo = {name:"",path:[]};
+                const area = []
+
+                areaInfo.name = geoPoly.features[i].properties.temp
+
+                for(let j=0; j<geoPoly.features[i].geometry.coordinates.length; j++)
+                {
+                    const sectionGeocity = [];
+                    for(let k=0; k<geoPoly.features[i].geometry.coordinates[j].length; k++){
+                        for(let l=0; l<geoPoly.features[i].geometry.coordinates[j][k].length; l++){
+                            sectionGeocity.push(new kakao.maps.LatLng(geoPoly.features[i].geometry.coordinates[j][k][l][1], geoPoly.features[i].geometry.coordinates[j][k][l][0]));
+                        }
+                    }
+
+                    area.push(sectionGeocity)
+                }
+                areaInfo.path = [...area];
+                areas.push(areaInfo);
+            } 
+        }
+        zoom?setgeocityPoly():setgeomapPoly()
+        // 객체 생성 완료
 
         let container = document.getElementById("map");
         let options = {
-            center: new kakao.maps.LatLng(35.880147491722404, 127.7250280907668),
-            level: 13,
-            disableDoubleClickZoom: true
+            center: new kakao.maps.LatLng(cent[0], cent[1]),
+            level: level,
+            disableDoubleClickZoom: true,
+            draggable: false,
+            zoomable: false
         };
         let map = new kakao.maps.Map(container, options);
-        map.setDraggable(false)
-        map.setZoomable(false)
         let customOverlay = new kakao.maps.CustomOverlay({});
+
+        // 각 광역시도별 폴리곤 저장
+        let polygons = [] 
 
         // 지도에 영역데이터를 폴리곤으로 표시합니다
         for (var i = 0, len = areas.length; i < len; i++) {
@@ -70,6 +114,10 @@ export default function Kakaomap(props) {
                 fillColor: '#fff',
                 fillOpacity: 0.7
             });
+
+
+
+            polygons.push(polygon)
             // 다각형에 mouseover 이벤트를 등록하고 이벤트가 발생하면 폴리곤의 채움색을 변경합니다
             // 지역명을 표시하는 커스텀오버레이를 지도위에 표시합니다
             kakao.maps.event.addListener(polygon, 'mouseover', function(mouseEvent) {
@@ -91,18 +139,41 @@ export default function Kakaomap(props) {
             kakao.maps.event.addListener(polygon, 'mouseout', function() {
                 polygon.setOptions({fillColor: '#fff'});
                 customOverlay.setMap(null);
-            });
+            }); 
 
-            // 다각형에 click 이벤트를 등록하고 이벤트가 발생하면 다각형의 이름과 면적을 인포윈도우에 표시합니다
-            kakao.maps.event.addListener(polygon, 'click', function(mouseEvent) {
+            // 다각형에 click 이벤트를 등록
+            kakao.maps.event.addListener(polygon, 'click', function() {
                 //클릭이벤트
+                if (zoom) return;
+                
+                customOverlay.setMap(null);
+                for(let i=0; i<polygons.length; i++) polygons[i].setMap(null)
+                console.log(geocentPos)
+                for(let i=0; i<geocentPos.length; i++) {
+                    if(geocentPos[i].sidonm === area.name) {
+                        setCent(geocentPos[i].coordinates)
+                        setSido(area.name)
+                    }
+                }
+                setLevel(12)
+                setZoom(!zoom)
+            });
+            // 다각형에 dblclick 이벤트를 등록
+            kakao.maps.event.addListener(map, 'dblclick', function() {
+                //클릭이벤트
+                if (!zoom) return;
+
+                customOverlay.setMap(null);
+                for(let i=0; i<polygons.length; i++) polygons[i].setMap(null)
+                setCent([35.880147491722404, 127.7250280907668])
+                setLevel(13)
+                setSido()
+                setZoom(!zoom)
             });
         }
-
-    },[]);
+    },[zoom, cent, sido, level]);
 
     return(
-        <Map elevation={2} id="map">
-        </Map>
+        <Map elevation={2} id="map"/>
     )
 };

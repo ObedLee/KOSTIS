@@ -65,8 +65,8 @@ export default function Sidebar({open}) {
         </DrawerHeader>
         <List>
           {['데이터1', '데이터2', '데이터3','데이터4', '데이터5', '데이터6'].map((text, index) => (
-            <StyledPaper>
-            <StyledListItem key={text} disablePadding>
+            <StyledPaper key={text} >
+            <StyledListItem disablePadding>
               <ListItemButton>
                 <ListItemIcon>
                   <AddIcon/>
