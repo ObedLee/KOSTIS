@@ -13,6 +13,7 @@ const Main = styled('div')(({ theme }) => ({
   alignContent: 'flex-start',
   height: '100%',
   padding:'10px',
+  marginTop: '70px',
   backgroundColor: property.backColor,
 }));
 

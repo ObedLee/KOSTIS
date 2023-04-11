@@ -4,10 +4,9 @@ import { Paper } from '@mui/material';
 import property from '../store/property';
 
 const StyledPaper = styled(Paper)(({ theme }) => ({
-  width: '400px',
   textAlign: 'center',
   padding: '8px 20px 0px 20px',
-  marginTop: '10px',
+  margin: '10px 0',
   color: property.txtColor,
   borderRadius: property.borderRadius,
 }));
@@ -38,7 +37,7 @@ const StyledSlider = styled(Slider)({
     padding: 0,
     width: 44,
     height: 44,
-    borderRadius: '50% 50% 50% 0',
+    borderRadius: '50% 50% 50% 0%',
     backgroundColor: property.mainColor,
     transformOrigin: 'bottom left',
     transform: 'translate(50%, -100%) rotate(-45deg) scale(0)',

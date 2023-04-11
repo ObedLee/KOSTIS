@@ -1,6 +1,4 @@
 import property from '../store/property.js';
-
-import * as React from 'react';
 import { styled } from '@mui/material/styles';
 import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
@@ -13,17 +11,18 @@ import ListItemText from '@mui/material/ListItemText';
 import AddIcon from '@mui/icons-material/Add';
 import EqualizerRoundedIcon from '@mui/icons-material/EqualizerRounded';
 import KeyboardArrowDownRoundedIcon from '@mui/icons-material/KeyboardArrowDownRounded';
+import ClickAwayListener from '@mui/base/ClickAwayListener';
+
 
 const StyledDrawer = styled(Drawer)(({ theme }) => ({
     width: property.drawerWidth,
-    flexShrink: 0,
+    flexShrink: 1,
     marginTop:'70px',
     '& .MuiDrawer-paper': {
       width: property.drawerWidth,
       boxSizing: 'border-box',
       background: property.backColor,
       color: property.txtColor,
-      
     }
   }));
   
@@ -39,24 +38,27 @@ const StyledDrawer = styled(Drawer)(({ theme }) => ({
     // /justifyContent: 'flex-end',
   }));
 
-  const StyledPaper = styled(Paper)(({ theme }) => ({
+  const StyledPaper = styled(Paper)(() => ({
     margin:'10px',
     color: property.txtColor,
     borderRadius: property.borderRadius,
   }));
   
-  const StyledListItem = styled(ListItem)(({ theme }) => ({
+  const StyledListItem = styled(ListItem)(() => ({
     '&:hover': {
-      backgroundColor: property.lightColor,
+      backgroundColor: property.warnColor,
       color: property.white
     },
   }));
 
-export default function Sidebar({open}) {
+export default function Sidebar({open, setOpen}) {
 
     return(
-      <StyledDrawer variant="persistent" anchor="left" open={open}>
-        <StyledPaper  elevation={0} sx={{height:'100vh'}}>
+      <StyledDrawer
+        anchor="left"
+        open={open}>
+      <ClickAwayListener onClickAway={()=>setOpen(false)}>
+        <StyledPaper elevation={0} sx={{height:'100vh'}}>
         <DrawerHeader>
         <EqualizerRoundedIcon sx={{ml: '10px', mt:"auto", fontSize: 40, color:property.mainColor}}/>
           <Typography variant="h6" noWrap component="div" sx={{ml:'10px', mr:'auto', mt:"auto"}}>
@@ -64,7 +66,7 @@ export default function Sidebar({open}) {
           </Typography>
         </DrawerHeader>
         <List>
-          {['데이터1', '데이터2', '데이터3','데이터4', '데이터5', '데이터6'].map((text, index) => (
+          {['데이터1', '데이터2', '데이터3','데이터4', '데이터5', '데이터6'].map((text) => (
             <StyledPaper key={text} >
             <StyledListItem disablePadding>
               <ListItemButton>
@@ -81,8 +83,7 @@ export default function Sidebar({open}) {
           ))}
         </List>
         </StyledPaper>
+        </ClickAwayListener>
       </StyledDrawer>
-
-
     )
 }

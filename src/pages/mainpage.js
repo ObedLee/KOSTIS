@@ -12,7 +12,7 @@ export default function Mainpage() {
   return (
     <>
       <Topbar open={open} setOpen={setOpen}/>
-      <Sidebar open={open}/>
+      <Sidebar open={open} setOpen={setOpen}/>
       <Mainview open={open}/>
     </>
   );

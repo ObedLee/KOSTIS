@@ -1,19 +1,18 @@
 import property from '../store/property';
-
-import * as React from 'react';
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 
-const StyledBox = styled(Box)(({ theme }) => ({
+const StyledBox = styled(Box)(() => ({
   display:'flex',
   flexGrow: 1,
-  //flexShrink:1,
- //flexBasis: '400px'
-}));
+  margin: '0 0 10px 10px',
+ // flexShrink:1,
+ flexBasis: '400px'
+}))
 
-const Chart = styled(Paper)(({ theme }) => ({
+const Chart = styled(Paper)(() => ({
     height: '240px',
     //width: '400px',
     textAlign: 'center',
@@ -24,10 +23,11 @@ const Chart = styled(Paper)(({ theme }) => ({
 export default function Chartbox() {
   return( 
     <StyledBox>
-          <Grid container spacing={{ xs: 1, md: 1}} columns={{ xs: 2, sm:4, md: 12}}>
-          {Array.from(Array(6)).map((_, index) => (
-            <Grid item xs={2} sm={4} md={6} key={index}>
-              <Chart elevation={4}> + </Chart>
+          <Grid container spacing={{ xs: 1, md: 1}} columns={{ xs: 2, sm:4, md: 8}}>
+          {Array.from(Array(5)).map((_, index) => (
+            <Grid item xs={2} sm={2} md={4} key={index}>
+              <Chart elevation={4}>
+              </Chart>
             </Grid>
           ))}
         </Grid>

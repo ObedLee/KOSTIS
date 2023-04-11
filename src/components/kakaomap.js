@@ -6,14 +6,15 @@ import Paper from '@mui/material/Paper';
 import { styled } from '@mui/material/styles';
 import property from "../store/property";
 import './style/kakaomap.css'
+import Showswitch from "./showswitch";
 
 const { kakao } = window;
 
-const Map = styled(Paper)(({ theme }) => ({
+const Map = styled(Paper)(() => ({
     width: "400px", 
-    height: "680px", 
-    marginRight:'10px',
+    height: "680px",
     borderRadius: property.borderRadius,
+    textAlign: 'right'
   }));
 
 export default function Kakaomap(props) {
@@ -109,7 +110,7 @@ export default function Kakaomap(props) {
                 map:map,
                 path:area.path,
                 strokeWeight: 2,
-                strokeColor: property.darkColor,
+                strokeColor: property.txtColor,
                 strokeOpacity: 0.8,
                 fillColor: '#fff',
                 fillOpacity: 0.7
@@ -148,7 +149,6 @@ export default function Kakaomap(props) {
                 
                 customOverlay.setMap(null);
                 for(let i=0; i<polygons.length; i++) polygons[i].setMap(null)
-                console.log(geocentPos)
                 for(let i=0; i<geocentPos.length; i++) {
                     if(geocentPos[i].sidonm === area.name) {
                         setCent(geocentPos[i].coordinates)
@@ -174,6 +174,9 @@ export default function Kakaomap(props) {
     },[zoom, cent, sido, level]);
 
     return(
-        <Map elevation={2} id="map"/>
+        <>
+        <Map elevation={4} id="map"><Showswitch /></Map>
+        </>
     )
+
 };
