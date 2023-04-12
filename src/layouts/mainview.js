@@ -12,6 +12,7 @@ const Main = styled('div')(({ theme }) => ({
   flexWrap: 'wrap',
   alignContent: 'flex-start',
   height: '100%',
+  width: '100%',
   padding:'10px',
   marginTop: '70px',
   backgroundColor: property.backColor,
