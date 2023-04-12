@@ -199,9 +199,9 @@ export default function Kakaomap(props) {
     },[zoom, cent, level, resize]);
 
     return(
-        <>
+        <div>
         <Map elevation={4} id="map"><Showswitch /></Map>
-        </>
+        </div>
     )
 
 };
