@@ -7,17 +7,28 @@ import { styled } from '@mui/material/styles';
 import property from "../store/property";
 import './style/kakaomap.css'
 import Showswitch from "./showswitch";
+import { debounce } from "@mui/material";
 
 const { kakao } = window;
 
-const Map = styled(Paper)(() => ({
+const Map = styled(Paper)(({theme}) => ({
     width: "400px", 
     height: "680px",
     borderRadius: property.borderRadius,
-    textAlign: 'right'
+    textAlign: 'right',
+    [theme.breakpoints.down('md')]: {
+        width: "97vw",
+    }
   }));
 
 export default function Kakaomap(props) {
+
+    const [resize, setResize] = useState(true)
+
+    const handelResize = debounce(() => {
+        setResize(!resize)
+    }, 1000)
+
 
     const [zoom, setZoom] = useState(false)
     const [cent, setCent] = useState([35.880147491722404, 127.7250280907668])
@@ -26,6 +37,8 @@ export default function Kakaomap(props) {
 
 
     useEffect(() => {
+        window.addEventListener('resize', handelResize)
+
         let geoPoly
         zoom ? geoPoly = JSON.parse(JSON.stringify(geocity)) : geoPoly = JSON.parse(JSON.stringify(geomap))
         // const geoPoly = JSON.parse(JSON.stringify(geomap));
@@ -161,7 +174,11 @@ export default function Kakaomap(props) {
             // 다각형에 dblclick 이벤트를 등록
             kakao.maps.event.addListener(map, 'dblclick', function() {
                 //클릭이벤트
-                if (!zoom) return;
+                if (!zoom) {
+                    setCent([35.880147491722404, 127.7250280907668])
+                    setLevel(13)
+                    return;
+                }
 
                 customOverlay.setMap(null);
                 for(let i=0; i<polygons.length; i++) polygons[i].setMap(null)
@@ -171,7 +188,15 @@ export default function Kakaomap(props) {
                 setZoom(!zoom)
             });
         }
-    },[zoom, cent, sido, level]);
+        return () => {
+            window.removeEventListener('resize', handelResize)
+            kakao.maps.event.removeListener(map, 'click');
+            kakao.maps.event.removeListener(map, 'dblclick');
+            kakao.maps.event.removeListener(map, 'mouseover');
+            kakao.maps.event.removeListener(map, 'mouseout');
+            kakao.maps.event.removeListener(map, 'mousemove');
+        }
+    },[zoom, cent, level, resize]);
 
     return(
         <>
