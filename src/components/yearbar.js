@@ -6,7 +6,6 @@ import property from '../store/property';
 const StyledPaper = styled(Paper)(({ theme }) => ({
   textAlign: 'center',
   padding: '8px 20px 0px 20px',
-  margin: '10px 0',
   color: property.txtColor,
   borderRadius: property.borderRadius,
 }));

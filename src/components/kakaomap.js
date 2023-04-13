@@ -16,6 +16,7 @@ const Map = styled(Paper)(({theme}) => ({
     height: "680px",
     borderRadius: property.borderRadius,
     textAlign: 'right',
+    marginBottom: '10px',
     [theme.breakpoints.down('md')]: {
         width: "97vw",
     }
@@ -199,9 +200,7 @@ export default function Kakaomap(props) {
     },[zoom, cent, level, resize]);
 
     return(
-        <div>
         <Map elevation={4} id="map"><Showswitch /></Map>
-        </div>
     )
 
 };
