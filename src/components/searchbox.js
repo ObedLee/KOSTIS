@@ -3,6 +3,8 @@ import property from '../store/property';
 import { styled, alpha } from '@mui/material/styles';
 import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
+import Drawer from '@mui/material/Drawer';
+import { useState } from "react";
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -45,22 +47,58 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
       '&:focus': {
         width: '33ch',
         border:`1px solid ${property.warnColor}`
-
+        
       },
     }
 }}));
 
+const SearchDrawer = styled(Drawer)((theme) => ({
+    zIndex: 1099,
+    flexShrink: 1,
+    '& .MuiDrawer-paper': {
+      width: '41ch',
+      height: '100vh',
+      boxSizing: 'border-box',
+      background: property.backColor,
+      color: property.txtColor,
+    }
+}))
+
 export default function Searchbar(){
+
+  const [open, setOpen] = useState(false);
+
+  const handleDrawerOpen = () => {
+    setOpen(true);
+  };
+
+  const handleDrawerClose = () => {
+    setOpen(false);
+  };
+
+
+
   return(
-    <Search>
-      <SearchIconWrapper>
-        <SearchIcon />
-      </SearchIconWrapper>
-      <StyledInputBase
-        placeholder="Search…"
-        inputProps={{ 'aria-label': 'search' }}
-      />
-    </Search>
+    <>
+      <Search>
+        <SearchIconWrapper>
+          <SearchIcon />
+        </SearchIconWrapper>
+        <StyledInputBase
+          placeholder="Search…"
+          inputProps={{ 'aria-label': 'search' }}
+        />
+     </Search>
+    <SearchDrawer
+      anchor='top'
+      open={open}
+      onClose={handleDrawerClose}
+      onOpen={handleDrawerOpen}
+    >
+    이건우
+    </SearchDrawer>
+    </>
+ 
   )
 
 }

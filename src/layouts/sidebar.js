@@ -14,10 +14,8 @@ import KeyboardArrowDownRoundedIcon from '@mui/icons-material/KeyboardArrowDownR
 import ClickAwayListener from '@mui/base/ClickAwayListener';
 
 
-const StyledDrawer = styled(Drawer)(({ theme }) => ({
-    width: property.drawerWidth,
+const StyledDrawer = styled(Drawer)(() => ({
     flexShrink: 1,
-    marginTop:'70px',
     '& .MuiDrawer-paper': {
       width: property.drawerWidth,
       boxSizing: 'border-box',
