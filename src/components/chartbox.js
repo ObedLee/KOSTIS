@@ -3,6 +3,9 @@ import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
+import ShareRoundedIcon from '@mui/icons-material/ShareRounded';
+import DownloadRoundedIcon from '@mui/icons-material/DownloadRounded';
+import IconButton from '@mui/material/IconButton';
 
 const StyledBox = styled(Box)(() => ({
   display:'flex',
@@ -27,6 +30,14 @@ export default function Chartbox() {
           {Array.from(Array(5)).map((_, index) => (
             <Grid item xs={2} sm={2} md={4} lg={8} key={index}>
               <Chart elevation={4}>
+                <Box sx={{textAlign:'right'}}>
+                <IconButton disableRipple='true' edge='end'>
+                  <ShareRoundedIcon fontSize="small"/>
+                </IconButton>
+                <IconButton disableRipple='true'>
+                  <DownloadRoundedIcon fontSize="small"/>
+                </IconButton>
+                </Box>
               </Chart>
             </Grid>
           ))}
