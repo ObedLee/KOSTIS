@@ -1,4 +1,4 @@
-import property from '../store/property.js';
+import property from '../config/property.js';
 import { styled } from '@mui/material/styles';
 import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
@@ -14,10 +14,8 @@ import KeyboardArrowDownRoundedIcon from '@mui/icons-material/KeyboardArrowDownR
 import ClickAwayListener from '@mui/base/ClickAwayListener';
 
 
-const StyledDrawer = styled(Drawer)(({ theme }) => ({
-    width: property.drawerWidth,
+const StyledDrawer = styled(Drawer)(() => ({
     flexShrink: 1,
-    marginTop:'70px',
     '& .MuiDrawer-paper': {
       width: property.drawerWidth,
       boxSizing: 'border-box',

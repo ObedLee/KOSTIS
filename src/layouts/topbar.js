@@ -1,6 +1,7 @@
-import property from '../store/property.js';
+import property from '../config/property.js';
 import Searchbox from '../components/searchbox.js'
 import Sharebox from '../components/sharebox.js'
+import AlertDialog from '../pages/chartpage.js'
 
 import * as React from 'react';
 import { styled } from '@mui/material/styles';
@@ -53,6 +54,7 @@ export default function Topbar({open, setOpen}) {
             <MenuIcon />
           </IconButton>
           <Searchbox/>
+          <AlertDialog/>
           <IconButton sx={{ ml: 'auto' }}>
             <HelpOutlineRoundedIcon />
           </IconButton>
