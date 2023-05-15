@@ -1,48 +1,58 @@
-import property from '../store/property';
+import property from '../config/property';
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
-import Grid from '@mui/material/Grid';
 import ShareRoundedIcon from '@mui/icons-material/ShareRounded';
 import DownloadRoundedIcon from '@mui/icons-material/DownloadRounded';
 import IconButton from '@mui/material/IconButton';
 
-const StyledBox = styled(Box)(() => ({
-  display:'flex',
-  flexGrow: 1,
-  margin: '0 10px 10px 10px',
- // flexShrink:1,
- flexBasis: '400px'
-}))
+import React from 'react';
+import Chart from 'chart.js/auto';
+import { Line } from 'react-chartjs-2';
 
-const Chart = styled(Paper)(() => ({
+
+const StyledPaper = styled(Paper)(() => ({
     height: '240px',
-    //width: '400px',
+    width: '100%',
     textAlign: 'center',
     color: property.txtColor,
     borderRadius: property.borderRadius,
 }));
 
 export default function Chartbox() {
+
+  let data =  {
+    labels: ['7-8', '8-9', '9-10', '10-11', '11-12', '17-18', '18-19', '19-20' ],
+    datasets: [
+      {
+        type: 'bar',
+        label: '탑승인원',
+        backgroundColor: 'rgb(255, 99, 132)',
+        data: [1,2,3,4,5],
+        borderColor: 'red',
+        borderWidth: 2,
+      },
+      {
+        type: 'bar',
+        label: '하차인원',
+        backgroundColor: 'rgb(75, 192, 192)',
+        data: [1,2,3,4,5],
+      },
+    ],
+  };
+
   return( 
-    <StyledBox>
-          <Grid container spacing={{ xs: 1, md: 1}} columns={{ xs: 2, sm:4, md: 8, lg: 16}}>
-          {Array.from(Array(5)).map((_, index) => (
-            <Grid item xs={2} sm={2} md={4} lg={8} key={index}>
-              <Chart elevation={4}>
-                <Box sx={{textAlign:'right'}}>
-                <IconButton disableRipple='true' edge='end'>
-                  <ShareRoundedIcon fontSize="small"/>
-                </IconButton>
-                <IconButton disableRipple='true'>
-                  <DownloadRoundedIcon fontSize="small"/>
-                </IconButton>
-                </Box>
-              </Chart>
-            </Grid>
-          ))}
-        </Grid>
-    </StyledBox>
+      <StyledPaper elevation={4}>
+        <Box sx={{textAlign:'right'}}>
+          <IconButton disableRipple='true' edge='end'>
+            <ShareRoundedIcon fontSize="small"/>
+          </IconButton>
+          <IconButton disableRipple='true'>
+            <DownloadRoundedIcon fontSize="small"/>
+          </IconButton>
+            <Line type="line" data={data} />
+        </Box>
+      </StyledPaper>
 
   );
 }

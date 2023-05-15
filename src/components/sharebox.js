@@ -2,7 +2,7 @@ import kakao from '../assets/images/kakaotalk.png'
 import instagram from '../assets/images/instagram.png'
 import facebook from '../assets/images/facebook.png'
 import linked from '../assets/images/linked.png'
-import property from '../store/property';
+import property from '../config/property';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import Button from '@mui/material/Button';
