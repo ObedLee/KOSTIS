@@ -1,5 +1,5 @@
 
-import property from '../store/property';
+import property from '../config/property';
 import { styled, alpha } from '@mui/material/styles';
 import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';

@@ -1,4 +1,4 @@
-import property from '../store/property.js';
+import property from '../config/property.js';
 import { styled } from '@mui/material/styles';
 import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';

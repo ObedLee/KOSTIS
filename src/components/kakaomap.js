@@ -4,8 +4,8 @@ import geocity from "../assets/geocity.json";
 import geocenter from "../assets/geocenter.json";
 import Paper from '@mui/material/Paper';
 import { styled } from '@mui/material/styles';
-import property from "../store/property";
-import './style/kakaomap.css'
+import property from "../config/property";
+import '../style/kakaomap.css'
 import Showswitch from "./showswitch";
 import { debounce } from "@mui/material";
 

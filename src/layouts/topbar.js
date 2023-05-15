@@ -1,4 +1,4 @@
-import property from '../store/property.js';
+import property from '../config/property.js';
 import Searchbox from '../components/searchbox.js'
 import Sharebox from '../components/sharebox.js'
 import AlertDialog from '../pages/chartpage.js'
