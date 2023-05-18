@@ -37,7 +37,7 @@ export default function Mainview({open}){
           </Box>
           <StyledBox>
           <Grid container spacing={{ xs: 1, md: 1}} columns={{ xs: 2, sm:4, md: 8, lg: 16}}>
-          {Array.from(Array(5)).map((_, index) => (
+          {Array.from(Array(3)).map((_, index) => (
             <Grid item xs={2} sm={2} md={4} lg={8} key={index}>
               <Chartbox/>
             </Grid>

@@ -17,8 +17,8 @@ const StyledPaper = styled(Paper)(() => ({
 const StyledListItem = styled(ListItem)(() => ({
     padding: 0,
     '&:hover': {
-        border:`1px solid ${property.warnColor}`,
-        backgroundColor: property.white
+        border:`2px solid ${property.mainColor}`,
+        borderRadius: '4px',
 },
 }));
 
