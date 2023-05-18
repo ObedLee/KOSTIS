@@ -8,7 +8,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import AddIcon from '@mui/icons-material/Add';
+import DataSaverOffRoundedIcon from '@mui/icons-material/DataSaverOffRounded';
 import EqualizerRoundedIcon from '@mui/icons-material/EqualizerRounded';
 import KeyboardArrowDownRoundedIcon from '@mui/icons-material/KeyboardArrowDownRounded';
 import ClickAwayListener from '@mui/base/ClickAwayListener';
@@ -44,12 +44,15 @@ const StyledDrawer = styled(Drawer)(() => ({
   
   const StyledListItem = styled(ListItem)(() => ({
     '&:hover': {
-      backgroundColor: property.warnColor,
-      color: property.white
+      border: '2px solid' + property.warnColor,
+      borderRadius: property.borderRadius,
     },
   }));
 
-export default function Sidebar({open, setOpen}) {
+
+
+  
+export default function Sidebar({open, setOpen, data}) {
 
     return(
       <StyledDrawer
@@ -64,14 +67,11 @@ export default function Sidebar({open, setOpen}) {
           </Typography>
         </DrawerHeader>
         <List>
-          {['데이터1', '데이터2', '데이터3','데이터4', '데이터5', '데이터6'].map((text) => (
-            <StyledPaper key={text} >
+          {data.map((dt, i) => (
+            <StyledPaper key={dt.name} >
             <StyledListItem disablePadding>
               <ListItemButton>
-                <ListItemIcon>
-                  <AddIcon/>
-                </ListItemIcon>
-                <ListItemText primary={text} />
+                <ListItemText sx={{ml:"10px"}} primary={dt.name} />
                 <ListItemIcon>
                   <KeyboardArrowDownRoundedIcon sx={{ml:"auto"}}/>
                 </ListItemIcon>
