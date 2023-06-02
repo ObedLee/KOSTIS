@@ -6,17 +6,21 @@ import reportWebVitals from './reportWebVitals';
 import store from './store/store.js'
 import { Provider } from "react-redux";
 import { StyledEngineProvider } from '@mui/material/styles';
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 
+const queryClient = new QueryClient()   //2번
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+  //<React.StrictMode>
+    <QueryClientProvider client={queryClient}>
     <Provider store={store}>
     <StyledEngineProvider injectFirst>
       <App />
     </StyledEngineProvider>
     </Provider>
-  </React.StrictMode>
+  </QueryClientProvider>
+  //</React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

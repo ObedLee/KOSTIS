@@ -1,6 +1,6 @@
 const property = {
     borderRadius: '8px',
-    drawerWidth: '300px',
+    drawerWidth: '320px',
     appbarHeight: '70px',
     backColor: "#f7f7f7",    
     mainColor: "#3484F0",

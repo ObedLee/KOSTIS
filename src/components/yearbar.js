@@ -2,6 +2,7 @@ import { styled } from '@mui/material/styles'
 import Slider from '@mui/material/Slider';
 import { Paper } from '@mui/material';
 import property from '../config/property';
+import { useEffect, useState } from 'react';
 
 const StyledPaper = styled(Paper)(({ theme }) => ({
   textAlign: 'center',
@@ -55,11 +56,19 @@ function valueLabelFormat(value) {
   return `${value}년`;
 }
 
-export default function Yearbar() {
-
+export default function Yearbar({year, setYear}) {
+  
   let now = new Date();
   let minYear = 2000
   let maxYear = now.getFullYear() - 1;
+
+  useEffect(()=>{
+    setYear(maxYear);
+  },[])
+
+  const handleChange = (event, newValue) => {
+    setYear(newValue);
+  };
 
   return (
     <StyledPaper elevation={4} >
@@ -71,6 +80,7 @@ export default function Yearbar() {
         min={minYear}
         max={maxYear}
         step={1}
+        onChange={handleChange}
       />
     </StyledPaper>
   );
