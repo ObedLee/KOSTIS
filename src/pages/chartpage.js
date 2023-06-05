@@ -10,61 +10,85 @@ import Slide from '@mui/material/Slide';
 import Box from '@mui/material/Box';
 import Chartlist from '../components/chartlist'
 import Chartbox from '../components/chartbox';
-import Legendlist from '../components/legendlist'
 import { SwatchesPicker } from 'react-color';
 import { styled } from '@mui/material/styles';
+import Yearbar from '../components/yearbar.js';
+import { useState} from 'react';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
 const CustomBox = styled(Box)(() => ({
-  width:'100%',
-  height:'100%', 
+  width:'58%',
+  height:'auto', 
   display:'flex', 
   flexWrap: 'wrap', 
   flexDirection:'column',
-  justifyContent: 'space-between'
+  justifyContent: 'space-between',
+  margin: 'auto'
+}));
+
+const CustomBox2 = styled(Box)(() => ({
+  width:'100%',
+  height:'auto', 
+  display:'flex', 
+  flexWrap: 'wrap', 
+  flexDirection:'column',
+  justifyContent: 'space-between',
+
 }));
 
 
-export default function AlertDialog() {
-  const [open, setOpen] = React.useState(false);
+
+export default function Chartpage({open, setOpen, name, setDatasets, datasets, dataset, year, setYear, setColor, setShape, colors, shapes}) {
+
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
 
-  const handleClickOpen = () => {
-    setOpen(true);
+  const [tempC, setTempC] = useState()
+  const [tempS, setTempS] = useState()
+
+  const handleChangeComplete = color => {
+    setTempC(color.hex);
+
   };
 
   const handleClose = () => {
+    const copy = [...datasets, dataset]
+    setDatasets([...copy])
+    const copy2 = [...colors, tempC]
+    setColor([...copy2])
+    const copy3 = [...shapes, tempS]
+    setShape([...copy3])
     setOpen(false);
   };
 
+
   return (
-    <div>
-      <Button variant="outlined" onClick={handleClickOpen}>
-        Test
-      </Button>
       <Dialog
         open={open}
         onClose={handleClose}
         aria-labelledby="chart-title"
         fullWidth='true'
-        maxWidth='lg'
+        maxWidth='xl'
         fullScreen={fullScreen}
         TransitionComponent={Transition}
       >
-        <Chartlist/>
-        <DialogTitle id="chart-title" sx={{textAlign: 'center', marginLeft: '210px'}}>
-          {'통계 데이터 이름'}
+        <Chartlist tempS={tempS} setTempS={setTempS}/>
+        <DialogTitle id="chart-title" sx={{textAlign: 'center', marginLeft: '155px'}}>
+          {name}
         </DialogTitle>
-        <DialogContent sx={{height:'70vh',  marginLeft: '210px', display:'flex', px:2}}>
-          <Legendlist/>
+        <DialogContent sx={{height:'70vh',  marginLeft: '155px', display:'flex', px:2}}>
+        <CustomBox2>
           <CustomBox>
-            <Chartbox />
-            <SwatchesPicker height='auto' width='100%'/>
+            <Chartbox ex={true} year={year} dataset={dataset} shape={tempS} color={tempC}/>
+            <Yearbar setYear={setYear}/>
           </CustomBox>
+          <Box sx={{height:'24%', margin:'auto'}}>
+            <SwatchesPicker height="100%" width="100%" onChangeComplete={handleChangeComplete}/>
+          </Box>
+        </CustomBox2>
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>취소</Button>
@@ -73,6 +97,5 @@ export default function AlertDialog() {
           </Button>
         </DialogActions>
       </Dialog>
-    </div>
   );
 }

@@ -21,7 +21,7 @@ const StyledPaper = styled(Paper)(() => ({
     borderRadius: property.borderRadius,
 }));
 
-export default function Chartbox({datasets, setDatasets, dataset, year, index}) {
+export default function Chartbox({datasets, setDatasets, dataset, year, index, ex, color, shape}) {
 
   const url = 'http://localhost:8080/'
 
@@ -61,8 +61,8 @@ export default function Chartbox({datasets, setDatasets, dataset, year, index}) 
     datasets: [
       { 
         label: legend,
-        type: 'bar',
-        backgroundColor: 'red',
+        type: shape,
+        backgroundColor: color,
         data: data,
         borderWidth: 0,
       },
@@ -72,7 +72,7 @@ export default function Chartbox({datasets, setDatasets, dataset, year, index}) 
   return( 
       <StyledPaper elevation={4}>
         <Box sx={{textAlign:'right'}}>
-          <IconButton disableRipple={true} edge='end'>
+          {!ex && (<><IconButton disableRipple={true} edge='end'>
             <ShareRoundedIcon fontSize="small"/>
           </IconButton>
           <IconButton disableRipple={true} edge='end'>
@@ -84,7 +84,7 @@ export default function Chartbox({datasets, setDatasets, dataset, year, index}) 
             setDatasets(copy)  
           }}>
             <CloseRoundedIcon fontSize="small"/>
-          </IconButton>
+          </IconButton></>)}
             <Line type="line" data={chart} />
         </Box>
       </StyledPaper>

@@ -54,7 +54,6 @@ export default function Topbar({open, setOpen}) {
             <MenuIcon />
           </IconButton>
           <Searchbox/>
-          <AlertDialog/>
           <IconButton sx={{ ml: 'auto' }}>
             <HelpOutlineRoundedIcon />
           </IconButton>

@@ -14,6 +14,7 @@ import ClickAwayListener from '@mui/base/ClickAwayListener';
 import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios'
+import Chartpage from '../pages/chartpage.js';
 
 const StyledDrawer = styled(Drawer)(() => ({
     flexShrink: 1,
@@ -55,7 +56,7 @@ const StyledDrawer = styled(Drawer)(() => ({
   }));
 
 
-  function Datalist({data}){
+  function Datalist({data, year, setYear, setColor, setShape, colors, shapes, datasets, setDatasets}){
 
     const [show, setShow] = useState(false)
 
@@ -75,7 +76,7 @@ const StyledDrawer = styled(Drawer)(() => ({
         {
 
         data.sub && show ? <List sx={{p:0, pb:'2px'}}> {data.sub.map((dt, i) => (
-            <SubDatalist data={dt}key={i}/>
+            <SubDatalist data={dt} setColor={setColor} setShape={setShape} colors={colors} shapes={shapes} setYear={setYear} year={year} datasets={datasets} setDatasets={setDatasets} key={i}/>
           ))} </List> : null
 
         }
@@ -88,7 +89,7 @@ const StyledDrawer = styled(Drawer)(() => ({
     )
   }
 
-  function SubDatalist({data}){
+  function SubDatalist({data, year, setYear, setColor, setShape, colors, shapes, datasets, setDatasets}){
     
     const [show, setShow] = useState(false)
 
@@ -108,7 +109,7 @@ const StyledDrawer = styled(Drawer)(() => ({
         {
 
           data.list && show ? <List  sx={{p:0, pb:'2px'}}> {data.list.map((dt, i) => (
-              <ListDatalist data={dt} key={i}/>
+              <ListDatalist data={dt} setColor={setColor} setShape={setShape} colors={colors} shapes={shapes} year={year} setYear={setYear} datasets={datasets} setDatasets={setDatasets} key={i}/>
             ))} </List> : null
 
         }
@@ -118,7 +119,7 @@ const StyledDrawer = styled(Drawer)(() => ({
     )
   }
 
-  function ListDatalist({data}){
+  function ListDatalist({data, year, setYear, setColor, setShape, colors, shapes, datasets, setDatasets}){
 
     const [show, setShow] = useState(false)
 
@@ -138,7 +139,7 @@ const StyledDrawer = styled(Drawer)(() => ({
         {
 
           data.res && show ? <List sx={{p:0, pb:'2px'}}> {data.res.map((dt, i) => (
-              <ResDatalist data={dt} key={i}/>
+              <ResDatalist data={dt} setColor={setColor} setShape={setShape} colors={colors} shapes={shapes} year={year} setYear={setYear} datasets={datasets} setDatasets={setDatasets} key={i}/>
             ))} </List> : null
 
         }
@@ -149,29 +150,35 @@ const StyledDrawer = styled(Drawer)(() => ({
     )
   }
 
-  function ResDatalist({data}){
+  function ResDatalist({data, year, setYear, setColor, setShape, colors, shapes, datasets, setDatasets}){
 
-    // const [resData, setResData] = useState([])
+    const [open, setOpen] = useState(false);
 
-    // const url = 'http://localhost:8080/'
+    const handleClickOpen = () => {
+      setOpen(true);
+    };
+  
+    const url = 'http://localhost:8080/'
+
+    let res = useQuery(['res'], ()=>
+    axios.get(url+encodeURIComponent(data.res_name)).then((result)=>{
+      return result.data
+    }))
+
+
+    let dataset = useQuery(['dataset'], ()=>
+    axios.get(url+'pop').then((result)=>{
+      return result.data
+    })
+    )
+
     
     return(
       <>
       <StyledListPaper key={data.res_name} >
         <ListItem disablePadding>
           <ListItemButton disableRipple={true}
-          // onClick={
-          //   () => {
-          //     axios.get(url+encodeURIComponent(data.res_name)).then((result)=>{
-          //       setResData([...result.data])
-          //     })
-          //     .catch(()=>{
-          //       console.log('err')
-          //     })
-
-          //     console.log(resData)
-
-          //   }}
+          onClick={handleClickOpen}
           >
           <ListItemText>
             <Typography sx={{ fontSize: "0.8rem" }}>{data.res_name}</Typography>
@@ -182,13 +189,17 @@ const StyledDrawer = styled(Drawer)(() => ({
           </ListItemButton>
         </ListItem>
       </StyledListPaper>
+      <Chartpage open={open} setOpen={setOpen}
+                year={year} setYear={setYear} colors={colors}
+                shapes={shapes} setColor={setColor} setShape={setShape} 
+                dataset={dataset.data} name={data.res_name} datasets={datasets} setDatasets={setDatasets}/>
       </>
 
     )
   }
 
 
-export default function Sidebar({open, setOpen}) {
+export default function Sidebar({open, setOpen, year, setYear, setColor, setShape, colors, shapes, datasets, setDatasets}) {
 
   const url = 'http://localhost:8080/'
 
@@ -211,7 +222,7 @@ export default function Sidebar({open, setOpen}) {
         </DrawerHeader>
         <List>
          {list.data&&list.data.map((dt, i) => (
-            <Datalist data={dt} key={i}/>
+            <Datalist data={dt} year={year} setColor={setColor} setYear={setYear} colors={colors} shapes={shapes} datasets={datasets} setDatasets={setDatasets} setShape={setShape} key={i}/>
           ))}
         </List>
         </StyledPaper>

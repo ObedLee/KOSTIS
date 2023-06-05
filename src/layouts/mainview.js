@@ -29,13 +29,9 @@ const StyledBox = styled(Box)(() => ({
 }))
 
 
-export default function Mainview(){
+export default function Mainview({year, setYear, colors, shapes, datasets,  setDatasets}){
 
   const url = 'http://localhost:8080/'
-
-  const [year, setYear] = useState(0)
-  const [datasets, setDatasets] = useState([])
-
 
   let pop = useQuery(['pop'], ()=>
     axios.get(url+'pop').then((result)=>{
@@ -45,21 +41,21 @@ export default function Mainview(){
 
   useEffect(()=>{
     setDatasets([pop.data])
-  }, [])
+  }, [pop.data])
 
   
   return(
       <Main>
           <Box>
             <Kakaomap/>
-            <Yearbar year={year} setYear={setYear}/>
+            <Yearbar setYear={setYear}/>
           </Box>
           <StyledBox>
           <Grid container spacing={{ xs: 1, md: 1}} columns={{ xs: 2, sm:4, md: 8, lg: 16}}>
-          {datasets&&datasets!=0&&datasets.map((data, index) => (
+          {datasets&&datasets!=0&&datasets.map((data, i) => (
 
-            <Grid item xs={2} sm={2} md={7} lg={8} key={index}>
-              <Chartbox datasets={datasets} setDatasets={setDatasets} dataset={data} year={year} index={index}/>
+            <Grid item xs={2} sm={2} md={7} lg={8} key={i}>
+              <Chartbox datasets={datasets} setDatasets={setDatasets} dataset={data} year={year} index={i} color={colors[i]} shape={shapes[i]} ex={false}/>
             </Grid>
           ))}
         </Grid>

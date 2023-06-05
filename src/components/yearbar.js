@@ -2,7 +2,7 @@ import { styled } from '@mui/material/styles'
 import Slider from '@mui/material/Slider';
 import { Paper } from '@mui/material';
 import property from '../config/property';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 const StyledPaper = styled(Paper)(({ theme }) => ({
   textAlign: 'center',
@@ -56,7 +56,7 @@ function valueLabelFormat(value) {
   return `${value}년`;
 }
 
-export default function Yearbar({year, setYear}) {
+export default function Yearbar({setYear}) {
   
   let now = new Date();
   let minYear = 2000
