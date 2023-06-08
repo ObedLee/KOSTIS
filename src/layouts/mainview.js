@@ -29,9 +29,9 @@ const StyledBox = styled(Box)(() => ({
 }))
 
 
-export default function Mainview({year, setYear, colors, shapes, datasets,  setDatasets}){
+export default function Mainview({year, setYear, colors, shapes, datasets,  setDatasets, setColor, setShape}){
 
-  const url = 'http://localhost:8080/'
+  const url = 'https://kostis-server.run.goorm.site:3000/'
 
   let pop = useQuery(['pop'], ()=>
     axios.get(url+'pop').then((result)=>{
@@ -53,9 +53,8 @@ export default function Mainview({year, setYear, colors, shapes, datasets,  setD
           <StyledBox>
           <Grid container spacing={{ xs: 1, md: 1}} columns={{ xs: 2, sm:4, md: 8, lg: 16}}>
           {datasets&&datasets!=0&&datasets.map((data, i) => (
-
             <Grid item xs={2} sm={2} md={7} lg={8} key={i}>
-              <Chartbox datasets={datasets} setDatasets={setDatasets} dataset={data} year={year} index={i} color={colors[i]} shape={shapes[i]} ex={false}/>
+              <Chartbox datasets={datasets} setDatasets={setDatasets} dataset={data} year={year} color={colors[i]} shape={shapes[i]} setColor={setColor} setShape={setShape} index={i} colors={colors} shapes={shapes} ex={false}/>
             </Grid>
           ))}
         </Grid>

@@ -15,7 +15,7 @@ export default function Mainpage() {
     <>
       <Topbar open={open} setOpen={setOpen}/>
       <Sidebar year={year} setYear={setYear} colors={colors} shapes={shapes} open={open} setColor={setColor} setShape={setShape}  datasets={datasets} setDatasets={setDatasets} setOpen={setOpen}/>
-      <Mainview year={year} setYear={setYear} colors={colors} shapes={shapes} datasets={datasets} setDatasets={setDatasets}/>
+      <Mainview year={year} setYear={setYear} colors={colors} shapes={shapes} datasets={datasets} setDatasets={setDatasets} setColor={setColor} setShape={setShape}/>
     </>
   );
 };

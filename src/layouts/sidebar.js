@@ -158,7 +158,7 @@ const StyledDrawer = styled(Drawer)(() => ({
       setOpen(true);
     };
   
-    const url = 'http://localhost:8080/'
+    const url = 'https://kostis-server.run.goorm.site:3000/'
 
     let res = useQuery(['res'], ()=>
     axios.get(url+encodeURIComponent(data.res_name)).then((result)=>{
@@ -201,7 +201,7 @@ const StyledDrawer = styled(Drawer)(() => ({
 
 export default function Sidebar({open, setOpen, year, setYear, setColor, setShape, colors, shapes, datasets, setDatasets}) {
 
-  const url = 'http://localhost:8080/'
+  const url = 'https://kostis-server.run.goorm.site:3000/'
 
   let list = useQuery(['list'], ()=>
     axios.get(url).then((result)=>{

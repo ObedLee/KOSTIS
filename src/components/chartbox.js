@@ -21,9 +21,9 @@ const StyledPaper = styled(Paper)(() => ({
     borderRadius: property.borderRadius,
 }));
 
-export default function Chartbox({datasets, setDatasets, dataset, year, index, ex, color, shape}) {
+export default function Chartbox({datasets, setDatasets, dataset, year, index, ex, colors, shapes, setColor, setShape, color, shape}) {
 
-  const url = 'http://localhost:8080/'
+  const url = 'https://kostis-server.run.goorm.site:3000/'
 
   const [lable, setLable] = useState([])
   const [data, setData] = useState([])
@@ -43,7 +43,7 @@ export default function Chartbox({datasets, setDatasets, dataset, year, index, e
     let temp2 = []
     for (const key in sido.data){
       temp = [...temp, sido.data[key]]
-      dataset && dataset.map((dt, i)=>{
+      dataset && dataset.map((dt)=>{
         if (dt.C1_NM === sido.data[key] && dt.PRD_DE == year)
           temp2 = [...temp2, dt.DT]
       })
@@ -53,7 +53,7 @@ export default function Chartbox({datasets, setDatasets, dataset, year, index, e
     setLegend(dataset[0].ITM_NM)
   
   
-  }, [sido.data, dataset, year])
+  }, [sido.data, dataset, year, color, shape])
 
 
   let chart =  {
@@ -62,16 +62,17 @@ export default function Chartbox({datasets, setDatasets, dataset, year, index, e
       { 
         label: legend,
         type: shape,
-        backgroundColor: color,
+        backgroundColor: color!==[]&&color,
         data: data,
-        borderWidth: 0,
+        borderWidth: 1,
+        borderColor: color!==[]&&color
       },
     ],
   };
 
   return( 
       <StyledPaper elevation={4}>
-        <Box sx={{textAlign:'right'}}>
+        <Box sx={{textAlign:'right', pb:'10px'}}>
           {!ex && (<><IconButton disableRipple={true} edge='end'>
             <ShareRoundedIcon fontSize="small"/>
           </IconButton>
@@ -81,11 +82,20 @@ export default function Chartbox({datasets, setDatasets, dataset, year, index, e
           <IconButton disableRipple={true} onClick={()=>{
             let copy = [...datasets]
             copy.splice(index,1)
-            setDatasets(copy)  
+            setDatasets([...copy]) 
+            
+            let copy1 = [...colors]
+            copy1.splice(index,1)
+            setColor([...copy1])
+
+            let copy2 = [...shapes]
+            copy2.splice(index,1)
+            setShape([...copy2])
+ 
           }}>
             <CloseRoundedIcon fontSize="small"/>
           </IconButton></>)}
-            <Line type="line" data={chart} />
+            <Line data={chart} />
         </Box>
       </StyledPaper>
 
