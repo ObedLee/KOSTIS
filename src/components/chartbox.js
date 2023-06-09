@@ -27,6 +27,7 @@ export default function Chartbox({datasets, setDatasets, dataset, year, index, e
 
   const [lable, setLable] = useState([])
   const [data, setData] = useState([])
+  const [data2, setData2] = useState([])
   const [legend, setLegend] = useState([])
 
   let sido = useQuery(['sido'], ()=>
@@ -41,16 +42,28 @@ export default function Chartbox({datasets, setDatasets, dataset, year, index, e
   useEffect(()=>{
     let temp = []
     let temp2 = []
+    let temp3 = []
+
     for (const key in sido.data){
       temp = [...temp, sido.data[key]]
       dataset && dataset.map((dt)=>{
         if (dt.C1_NM === sido.data[key] && dt.PRD_DE == year)
+        {
           temp2 = [...temp2, dt.DT]
+
+          let temp4 = {}
+          temp4['x'] = dt.C1_NM
+          temp4['y'] = dt.DT
+          temp4['r'] = 8
+          temp3 = [...temp3, temp4]
+        }
       })
     }
     setLable(temp)
     setData(temp2)
+    setData2(temp3)
     dataset&&setLegend(dataset[0].ITM_NM)
+
 
   }, [sido.data, dataset, year, color, shape])
 
@@ -60,13 +73,23 @@ export default function Chartbox({datasets, setDatasets, dataset, year, index, e
     datasets: [
       { 
         label: legend,
-        data: data,
-        backgroundColor: color!==[]&&color!==0&&color!==null&&color,
+        data: (shape==='Scatter'||shape==='Bubble')?data2:data,
+        backgroundColor: color&&color!==[]&&color!==0&&color!==null&&color,
         borderWidth: 1,
-        borderColor: color!==[]&&color!==0&&color!==null&&color
+        borderColor: color!==[]&&color!==0&&color!==null&&(shape==="Line"?color:"#FFF")
       },
     ],
   };
+
+  const options = {
+    scales: {
+      x: {
+        type: 'category',
+        labels: lable,
+        offset: true,
+    },
+  }
+}
 
   return( 
       <StyledPaper elevation={4}>
@@ -99,8 +122,8 @@ export default function Chartbox({datasets, setDatasets, dataset, year, index, e
             {(shape==='Doughnut')&&(<Doughnut data={chart}></Doughnut>)}
             {(shape==='PolarArea')&&(<PolarArea data={chart}></PolarArea>)}
             {(shape==='Radar')&&(<Radar data={chart}></Radar>)}
-            {(shape==='Scatter')&&(<Scatter data={chart}></Scatter>)}
-            {(shape==='Bubble')&&(<Bubble data={chart}></Bubble>)}
+            {(shape==='Scatter')&&(<Scatter data={chart} options={options}></Scatter>)}
+            {(shape==='Bubble')&&(<Bubble data={chart} options={options}></Bubble>)}
         </Box>
       </StyledPaper>
   );

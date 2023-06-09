@@ -14,7 +14,7 @@ const StyledPaper = styled(Paper)(({ theme }) => ({
 
 const StyledSlider = styled(Slider)({
   color: property.mainColor,
-  zIndex: 1,
+  zIndex: 1051,
   height: 8,
   '& .MuiSlider-track': {
     border: 'none',

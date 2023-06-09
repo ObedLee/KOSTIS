@@ -75,7 +75,7 @@ export default function Mainview({year, setYear, colors, shapes, datasets,  setD
   return(
     <Main>
       <Box>
-        <Kakaomap/>
+        <Kakaomap year={year} colors={colors} datasets={datasets}/>
         <Yearbar setYear={setYear}/>
       </Box>
       <DragDropContext onDragEnd={onDragEnd}>

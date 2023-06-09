@@ -8,7 +8,11 @@ import property from "../config/property";
 import '../style/kakaomap.css'
 import Showswitch from "./showswitch";
 import { debounce } from "@mui/material";
+import Fab from '@mui/material/Fab';
 import Box from '@mui/material/Box';
+import KeyboardArrowDownRoundedIcon from '@mui/icons-material/KeyboardArrowDownRounded';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { useTheme } from '@mui/material/styles';
 
 const { kakao } = window;
 
@@ -18,11 +22,11 @@ const Map = styled(Paper)(({theme}) => ({
     borderRadius: property.borderRadius,
     textAlign: 'right',
     [theme.breakpoints.down('md')]: {
-        width: "97vw",
+        width: "95vw",
     }
   }));
 
-export default function Kakaomap(props) {
+export default function Kakaomap({colors, year, data}) {
 
     const [resize, setResize] = useState(true)
 
@@ -69,6 +73,8 @@ export default function Kakaomap(props) {
                 }
                 areaInfo.path = [...area];
                 areas.push(areaInfo);
+
+                console.log(areas)
             } 
         }
 
@@ -199,10 +205,23 @@ export default function Kakaomap(props) {
         }
     },[zoom, cent, level, resize]);
 
+
+    const theme = useTheme();
+    const mobile = useMediaQuery(theme.breakpoints.down('md'));
+  
     return(
-        <Box>
-            <Map elevation={4} id="map"><Showswitch /></Map>
-        </Box>
+        <Map elevation={4} id="map"><Showswitch />
+        {mobile&&<Box sx={{ position: 'absolute', bottom: 16, left: 16,  }}>
+        <Fab color='primary' sx={{background:property.mainColor, color:property.white}} onClick={() => {
+            window.scrollTo({
+                    top: 760,
+                    behavior: 'smooth',
+                });
+            }} aria-label="scroll" size="small">
+            <KeyboardArrowDownRoundedIcon />
+        </Fab>
+      </Box>}
+      </Map>
     )
 
 };

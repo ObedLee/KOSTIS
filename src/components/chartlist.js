@@ -61,7 +61,7 @@ export default function Chartlist({open, setOpen, setTempS, fullScreen}) {
 
     return(
       <>
-      <Toolbar sx={{position:'fixed'}}>
+      <Toolbar sx={{position:'absolute'}}>
       <IconButton color="inherit"
         aria-label="open drawer"
         onClick={open?handleClickClose:handleClickOpen}
@@ -75,7 +75,8 @@ export default function Chartlist({open, setOpen, setTempS, fullScreen}) {
                 width: '160px',
                 backgroundColor: property.backColor,
                 px: '15px',
-                position:'absolute'}}>
+                position:'absolute',
+                zIndex:1201,}}>
 
           <DrawerHeader>
             <IconButton onClick={open?handleClickClose:handleClickOpen}>
