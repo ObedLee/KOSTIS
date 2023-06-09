@@ -48,7 +48,7 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 }));
 
 
-export default function Chartlist({open, setOpen, setTempS}) {
+export default function Chartlist({open, setOpen, setTempS, fullScreen}) {
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -79,8 +79,8 @@ export default function Chartlist({open, setOpen, setTempS}) {
 
           <DrawerHeader>
             <IconButton onClick={open?handleClickClose:handleClickOpen}>
-                <ChevronLeftIcon/>  
-              </IconButton>
+              <ChevronLeftIcon/>
+            </IconButton>
           </DrawerHeader>
 
         <List>

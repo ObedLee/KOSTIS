@@ -8,6 +8,7 @@ import property from "../config/property";
 import '../style/kakaomap.css'
 import Showswitch from "./showswitch";
 import { debounce } from "@mui/material";
+import Box from '@mui/material/Box';
 
 const { kakao } = window;
 
@@ -199,9 +200,9 @@ export default function Kakaomap(props) {
     },[zoom, cent, level, resize]);
 
     return(
-        <div>
-        <Map elevation={4} id="map"><Showswitch /></Map>
-        </div>
+        <Box>
+            <Map elevation={4} id="map"><Showswitch /></Map>
+        </Box>
     )
 
 };

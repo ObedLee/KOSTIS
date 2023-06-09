@@ -106,7 +106,7 @@ export default function Chartpage({open, setOpen, name, setDatasets, datasets, d
         fullScreen={fullScreen}
         TransitionComponent={Transition}
       >
-        <Chartlist setTempS={setTempS} open={open1} setOpen={setOpen1}/>
+        <Chartlist setTempS={setTempS} open={open1} setOpen={setOpen1} fullScreen={fullScreen} />
        {open1&&<DialogTitle id="chart-title" sx={{textAlign: 'center', marginLeft: '150px'}}>
           {name}
         </DialogTitle>}

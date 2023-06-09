@@ -11,8 +11,8 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios'
-import Chart1 from 'chart.js/auto';
-import { Bar, Line, Pie, Doughnut, PolarArea, Radar, Scatter, Bubble } from 'react-chartjs-2';
+import Chart from 'chart.js/auto';
+import { Bar, Line, Pie, Doughnut, PolarArea, Radar, Scatter, Bubble } from "react-chartjs-2";
 
 const StyledPaper = styled(Paper)(() => ({
     width: 'auto',
@@ -60,9 +60,8 @@ export default function Chartbox({datasets, setDatasets, dataset, year, index, e
     datasets: [
       { 
         label: legend,
-        type: shape&&String(shape)!=='PolarArea'?String(shape).toLowerCase():'polarArea',
-        backgroundColor: color!==[]&&color!==0&&color!==null&&color,
         data: data,
+        backgroundColor: color!==[]&&color!==0&&color!==null&&color,
         borderWidth: 1,
         borderColor: color!==[]&&color!==0&&color!==null&&color
       },
