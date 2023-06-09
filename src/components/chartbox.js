@@ -8,14 +8,14 @@ import IconButton from '@mui/material/IconButton';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 
 import React from 'react';
-import Chart from 'chart.js/auto';
-import { Line } from 'react-chartjs-2';
 import { useState, useEffect } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios'
+import Chart1 from 'chart.js/auto';
+import { Bar, Line, Pie, Doughnut, PolarArea, Radar, Scatter, Bubble } from 'react-chartjs-2';
 
 const StyledPaper = styled(Paper)(() => ({
-    width: '100%',
+    width: 'auto',
     textAlign: 'center',
     color: property.txtColor,
     borderRadius: property.borderRadius,
@@ -23,7 +23,7 @@ const StyledPaper = styled(Paper)(() => ({
 
 export default function Chartbox({datasets, setDatasets, dataset, year, index, ex, colors, shapes, setColor, setShape, color, shape}) {
 
-  const url = 'https://kostis-server.run.goorm.site:3000/'
+  const url = 'https://kostis-server.run.goorm.site/'
 
   const [lable, setLable] = useState([])
   const [data, setData] = useState([])
@@ -50,9 +50,8 @@ export default function Chartbox({datasets, setDatasets, dataset, year, index, e
     }
     setLable(temp)
     setData(temp2)
-    setLegend(dataset[0].ITM_NM)
-  
-  
+    dataset&&setLegend(dataset[0].ITM_NM)
+
   }, [sido.data, dataset, year, color, shape])
 
 
@@ -61,11 +60,11 @@ export default function Chartbox({datasets, setDatasets, dataset, year, index, e
     datasets: [
       { 
         label: legend,
-        type: shape,
-        backgroundColor: color!==[]&&color,
+        type: shape&&String(shape)!=='PolarArea'?String(shape).toLowerCase():'polarArea',
+        backgroundColor: color!==[]&&color!==0&&color!==null&&color,
         data: data,
         borderWidth: 1,
-        borderColor: color!==[]&&color
+        borderColor: color!==[]&&color!==0&&color!==null&&color
       },
     ],
   };
@@ -95,9 +94,15 @@ export default function Chartbox({datasets, setDatasets, dataset, year, index, e
           }}>
             <CloseRoundedIcon fontSize="small"/>
           </IconButton></>)}
-            <Line data={chart} />
+            {(shape==='Bar')&&(<Bar data={chart}></Bar>)}
+            {(shape==='Line')&&(<Line data={chart}></Line>)}
+            {(shape==='Pie')&&(<Pie data={chart}></Pie>)}
+            {(shape==='Doughnut')&&(<Doughnut data={chart}></Doughnut>)}
+            {(shape==='PolarArea')&&(<PolarArea data={chart}></PolarArea>)}
+            {(shape==='Radar')&&(<Radar data={chart}></Radar>)}
+            {(shape==='Scatter')&&(<Scatter data={chart}></Scatter>)}
+            {(shape==='Bubble')&&(<Bubble data={chart}></Bubble>)}
         </Box>
       </StyledPaper>
-
   );
 }

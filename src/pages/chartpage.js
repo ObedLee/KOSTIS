@@ -13,29 +13,37 @@ import Chartbox from '../components/chartbox';
 import { SwatchesPicker } from 'react-color';
 import { styled } from '@mui/material/styles';
 import Yearbar from '../components/yearbar.js';
-import { useState} from 'react';
+import { useState, useEffect } from 'react';
+
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-const CustomBox = styled(Box)(() => ({
-  width:'58%',
-  height:'auto', 
+const CustomBox = styled(Box,{ shouldForwardProp: (prop) => prop !== 'fullScreen' })(
+  ({ fullScreen }) => ({
+  width:'60vw',
+  height:'78vh', 
   display:'flex', 
-  flexWrap: 'wrap', 
+  flexWrap: 'no-wrap', 
   flexDirection:'column',
-  justifyContent: 'space-between',
-  margin: 'auto'
+  ...(fullScreen && {
+    height:'auto',
+    width:'100%',
+  }),
+
 }));
 
-const CustomBox2 = styled(Box)(() => ({
+const CustomBox2 = styled(Box,{ shouldForwardProp: (prop) => prop !== 'fullScreen' })(
+  ({ fullScreen }) => ({
   width:'100%',
-  height:'auto', 
+  height:'100%', 
   display:'flex', 
-  flexWrap: 'wrap', 
-  flexDirection:'column',
-  justifyContent: 'space-between',
+  flexWrap: 'no-wrap', 
+  marginLeft:'40px',
+  ...(fullScreen && {
+    flexDirection:'column',
+  }),
 
 }));
 
@@ -43,10 +51,16 @@ const CustomBox2 = styled(Box)(() => ({
 export default function Chartpage({open, setOpen, name, setDatasets, datasets, dataset, year, setYear, setColor, setShape, colors, shapes}) {
 
   const theme = useTheme();
-  const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
+  const fullScreen = useMediaQuery(theme.breakpoints.down('lg'));
 
   const [tempC, setTempC] = useState(null)
-  const [tempS, setTempS] = useState()
+  const [tempS, setTempS] = useState('Bar')
+  const [open1, setOpen1] = useState(true);
+
+  useEffect(()=>{
+    fullScreen&&setOpen1(false)
+    !fullScreen&&setOpen1(true)
+  },[fullScreen])
 
   const handleChangeComplete = color => {
     if (tempC !== null){
@@ -92,21 +106,41 @@ export default function Chartpage({open, setOpen, name, setDatasets, datasets, d
         fullScreen={fullScreen}
         TransitionComponent={Transition}
       >
-        <Chartlist setTempS={setTempS}/>
-        <DialogTitle id="chart-title" sx={{textAlign: 'center', marginLeft: '155px'}}>
+        <Chartlist setTempS={setTempS} open={open1} setOpen={setOpen1}/>
+       {open1&&<DialogTitle id="chart-title" sx={{textAlign: 'center', marginLeft: '150px'}}>
           {name}
-        </DialogTitle>
-        <DialogContent sx={{height:'70vh',  marginLeft: '155px', display:'flex', px:2}}>
-        <CustomBox2>
-          <CustomBox>
+        </DialogTitle>}
+        {!open1&&<DialogTitle id="chart-title" sx={{textAlign: 'center'}}>
+          {name}
+        </DialogTitle>}
+        {open1&&<DialogContent sx={{height:'auto',  marginLeft: '150px',display:'flex', px:2}}>
+        <CustomBox2 fullScreen={fullScreen}>
+          <CustomBox fullScreen={fullScreen}>
             <Chartbox ex={true} year={year} dataset={dataset} shape={tempS} color={tempC}/>
             <Yearbar setYear={setYear}/>
           </CustomBox>
-          <Box sx={{height:'24%', margin:'auto'}}>
+          {fullScreen&&<Box sx={{height:'100%'}}>
             <SwatchesPicker height="100%" width="100%" onChangeComplete={handleChangeComplete}/>
-          </Box>
+          </Box>}
+          {!fullScreen&&<Box sx={{height:'100%', marginLeft:'15px'}}>
+            <SwatchesPicker height="100%" width="100%" onChangeComplete={handleChangeComplete}/>
+          </Box>}
         </CustomBox2>
-        </DialogContent>
+        </DialogContent>}
+        {!open1&&<DialogContent sx={{height:'auto', display:'flex', px:2}}>
+        <CustomBox2 fullScreen={fullScreen}>
+          <CustomBox fullScreen={fullScreen}>
+            <Chartbox ex={true} year={year} dataset={dataset} shape={tempS} color={tempC}/>
+            <Yearbar setYear={setYear}/>
+          </CustomBox>
+          {fullScreen&&<Box sx={{height:'100%'}}>
+            <SwatchesPicker height="100%" width="100%" onChangeComplete={handleChangeComplete}/>
+          </Box>}
+          {!fullScreen&&<Box sx={{height:'100%', marginLeft:'15px'}}>
+            <SwatchesPicker height="100%" width="100%" onChangeComplete={handleChangeComplete}/>
+          </Box>}
+        </CustomBox2>
+        </DialogContent>}
         <DialogActions>
           <Button variant="outlined" onClick={handleReset}>색상 초기화</Button>
           <Button variant="contained" onClick={handleClose}>취소</Button>

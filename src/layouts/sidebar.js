@@ -75,7 +75,7 @@ const StyledDrawer = styled(Drawer)(() => ({
         </ListItem>
         {
 
-        data.sub && show ? <List sx={{p:0, pb:'2px'}}> {data.sub.map((dt, i) => (
+        data.sub && data.sub!==0 && show ? <List sx={{p:0, pb:'2px'}}> {data.sub.map((dt, i) => (
             <SubDatalist data={dt} setColor={setColor} setShape={setShape} colors={colors} shapes={shapes} setYear={setYear} year={year} datasets={datasets} setDatasets={setDatasets} key={i}/>
           ))} </List> : null
 
@@ -108,7 +108,7 @@ const StyledDrawer = styled(Drawer)(() => ({
         </ListItem>
         {
 
-          data.list && show ? <List  sx={{p:0, pb:'2px'}}> {data.list.map((dt, i) => (
+          data.list && data.list!==0 && show ? <List  sx={{p:0, pb:'2px'}}> {data.list.map((dt, i) => (
               <ListDatalist data={dt} setColor={setColor} setShape={setShape} colors={colors} shapes={shapes} year={year} setYear={setYear} datasets={datasets} setDatasets={setDatasets} key={i}/>
             ))} </List> : null
 
@@ -138,7 +138,7 @@ const StyledDrawer = styled(Drawer)(() => ({
         </ListItem>
         {
 
-          data.res && show ? <List sx={{p:0, pb:'2px'}}> {data.res.map((dt, i) => (
+          data.res && data.res !== 0 && show ? <List sx={{p:0, pb:'2px'}}> {data.res.map((dt, i) => (
               <ResDatalist data={dt} setColor={setColor} setShape={setShape} colors={colors} shapes={shapes} year={year} setYear={setYear} datasets={datasets} setDatasets={setDatasets} key={i}/>
             ))} </List> : null
 
@@ -158,7 +158,7 @@ const StyledDrawer = styled(Drawer)(() => ({
       setOpen(true);
     };
   
-    const url = 'https://kostis-server.run.goorm.site:3000/'
+    const url = 'https://kostis-server.run.goorm.site/'
 
     let res = useQuery(['res'], ()=>
     axios.get(url+encodeURIComponent(data.res_name)).then((result)=>{
@@ -189,10 +189,10 @@ const StyledDrawer = styled(Drawer)(() => ({
           </ListItemButton>
         </ListItem>
       </StyledListPaper>
-      <Chartpage open={open} setOpen={setOpen}
+      {dataset&&dataset!=='0'&&<Chartpage open={open} setOpen={setOpen}
                 year={year} setYear={setYear} colors={colors}
                 shapes={shapes} setColor={setColor} setShape={setShape} 
-                dataset={dataset.data} name={data.res_name} datasets={datasets} setDatasets={setDatasets}/>
+                dataset={dataset.data} name={data.res_name} datasets={datasets} setDatasets={setDatasets}/>}
       </>
 
     )
@@ -201,7 +201,7 @@ const StyledDrawer = styled(Drawer)(() => ({
 
 export default function Sidebar({open, setOpen, year, setYear, setColor, setShape, colors, shapes, datasets, setDatasets}) {
 
-  const url = 'https://kostis-server.run.goorm.site:3000/'
+  const url = 'https://kostis-server.run.goorm.site/'
 
   let list = useQuery(['list'], ()=>
     axios.get(url).then((result)=>{

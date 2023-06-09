@@ -8,7 +8,7 @@ export default function Mainpage() {
   const [open, setOpen] = useState(false);
   const [year, setYear] = useState(0)
   const [colors, setColor] = useState(['#F82'])
-  const [shapes, setShape] = useState(['bar'])
+  const [shapes, setShape] = useState(['Bar'])
   const [datasets, setDatasets] = useState([])
 
   return (
