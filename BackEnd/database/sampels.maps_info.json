@@ -1,0 +1,1653 @@
+[{
+  "_id": {
+    "$oid": "6461b3b35ae167205ec546cc"
+  },
+  "id": "21",
+  "name": "부산광역시",
+  "sub": [
+    {
+      "upper": "21",
+      "region_id": "010",
+      "region": "중구",
+      "value": ""
+    },
+    {
+      "upper": "21",
+      "region_id": "020",
+      "region": "서구",
+      "value": ""
+    },
+    {
+      "upper": "21",
+      "region_id": "030",
+      "region": "동구",
+      "value": ""
+    },
+    {
+      "upper": "21",
+      "region_id": "040",
+      "region": "영도구",
+      "value": ""
+    },
+    {
+      "upper": "21",
+      "region_id": "050",
+      "region": "부산진구",
+      "value": ""
+    },
+    {
+      "upper": "21",
+      "region_id": "060",
+      "region": "동래구",
+      "value": ""
+    },
+    {
+      "upper": "21",
+      "region_id": "070",
+      "region": "남구",
+      "value": ""
+    },
+    {
+      "upper": "21",
+      "region_id": "080",
+      "region": "북구",
+      "value": ""
+    },
+    {
+      "upper": "21",
+      "region_id": "090",
+      "region": "해운대구",
+      "value": ""
+    },
+    {
+      "upper": "21",
+      "region_id": "100",
+      "region": "사하구",
+      "value": ""
+    },
+    {
+      "upper": "21",
+      "region_id": "110",
+      "region": "금정구",
+      "value": ""
+    },
+    {
+      "upper": "21",
+      "region_id": "120",
+      "region": "강서구",
+      "value": ""
+    },
+    {
+      "upper": "21",
+      "region_id": "130",
+      "region": "연제구",
+      "value": ""
+    },
+    {
+      "upper": "21",
+      "region_id": "140",
+      "region": "수영구",
+      "value": ""
+    },
+    {
+      "upper": "21",
+      "region_id": "150",
+      "region": "사상구",
+      "value": ""
+    },
+    {
+      "upper": "21",
+      "region_id": "510",
+      "region": "기장군",
+      "value": ""
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6461b3b35ae167205ec546cd"
+  },
+  "id": "22",
+  "name": "대구광역시",
+  "sub": [
+    {
+      "upper": "22",
+      "region_id": "010",
+      "region": "중구",
+      "value": ""
+    },
+    {
+      "upper": "22",
+      "region_id": "020",
+      "region": "동구",
+      "value": ""
+    },
+    {
+      "upper": "22",
+      "region_id": "030",
+      "region": "서구",
+      "value": ""
+    },
+    {
+      "upper": "22",
+      "region_id": "040",
+      "region": "남구",
+      "value": ""
+    },
+    {
+      "upper": "22",
+      "region_id": "050",
+      "region": "북구",
+      "value": ""
+    },
+    {
+      "upper": "22",
+      "region_id": "060",
+      "region": "수성구",
+      "value": ""
+    },
+    {
+      "upper": "22",
+      "region_id": "070",
+      "region": "달서구",
+      "value": ""
+    },
+    {
+      "upper": "22",
+      "region_id": "510",
+      "region": "달성군",
+      "value": ""
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6461b3b35ae167205ec546d0"
+  },
+  "id": "25",
+  "name": "대전광역시",
+  "sub": [
+    {
+      "upper": "25",
+      "region_id": "010",
+      "region": "동구",
+      "value": ""
+    },
+    {
+      "upper": "25",
+      "region_id": "020",
+      "region": "중구",
+      "value": ""
+    },
+    {
+      "upper": "25",
+      "region_id": "030",
+      "region": "서구",
+      "value": ""
+    },
+    {
+      "upper": "25",
+      "region_id": "040",
+      "region": "유성구",
+      "value": ""
+    },
+    {
+      "upper": "25",
+      "region_id": "050",
+      "region": "대덕구",
+      "value": ""
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6461b3b35ae167205ec546d2"
+  },
+  "id": "29",
+  "name": "세종특별자치시",
+  "sub": [
+    {
+      "upper": "29",
+      "region_id": "010",
+      "region": "세종시",
+      "value": ""
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6461b3b35ae167205ec546d3"
+  },
+  "id": "31",
+  "name": "경기도",
+  "sub": [
+    {
+      "upper": "31",
+      "region_id": "011",
+      "region": "수원시 장안구",
+      "value": ""
+    },
+    {
+      "upper": "31",
+      "region_id": "012",
+      "region": "수원시 권선구",
+      "value": ""
+    },
+    {
+      "upper": "31",
+      "region_id": "013",
+      "region": "수원시 팔달구",
+      "value": ""
+    },
+    {
+      "upper": "31",
+      "region_id": "014",
+      "region": "수원시 영통구",
+      "value": ""
+    },
+    {
+      "upper": "31",
+      "region_id": "021",
+      "region": "성남시 수정구",
+      "value": ""
+    },
+    {
+      "upper": "31",
+      "region_id": "022",
+      "region": "성남시 중원구",
+      "value": ""
+    },
+    {
+      "upper": "31",
+      "region_id": "023",
+      "region": "성남시 분당구",
+      "value": ""
+    },
+    {
+      "upper": "31",
+      "region_id": "030",
+      "region": "의정부시",
+      "value": ""
+    },
+    {
+      "upper": "31",
+      "region_id": "041",
+      "region": "안양시 만안구",
+      "value": ""
+    },
+    {
+      "upper": "31",
+      "region_id": "042",
+      "region": "안양시 동안구",
+      "value": ""
+    },
+    {
+      "upper": "31",
+      "region_id": "050",
+      "region": "부천시",
+      "value": ""
+    },
+    {
+      "upper": "31",
+      "region_id": "060",
+      "region": "광명시",
+      "value": ""
+    },
+    {
+      "upper": "31",
+      "region_id": "070",
+      "region": "평택시",
+      "value": ""
+    },
+    {
+      "upper": "31",
+      "region_id": "080",
+      "region": "동두천시",
+      "value": ""
+    },
+    {
+      "upper": "31",
+      "region_id": "091",
+      "region": "안산시 상록구",
+      "value": ""
+    },
+    {
+      "upper": "31",
+      "region_id": "092",
+      "region": "안산시 단원구",
+      "value": ""
+    },
+    {
+      "upper": "31",
+      "region_id": "101",
+      "region": "고양시 덕양구",
+      "value": ""
+    },
+    {
+      "upper": "31",
+      "region_id": "103",
+      "region": "고양시 일산동구",
+      "value": ""
+    },
+    {
+      "upper": "31",
+      "region_id": "104",
+      "region": "고양시 일산서구",
+      "value": ""
+    },
+    {
+      "upper": "31",
+      "region_id": "110",
+      "region": "과천시",
+      "value": ""
+    },
+    {
+      "upper": "31",
+      "region_id": "120",
+      "region": "구리시",
+      "value": ""
+    },
+    {
+      "upper": "31",
+      "region_id": "130",
+      "region": "남양주시",
+      "value": ""
+    },
+    {
+      "upper": "31",
+      "region_id": "140",
+      "region": "오산시",
+      "value": ""
+    },
+    {
+      "upper": "31",
+      "region_id": "150",
+      "region": "시흥시",
+      "value": ""
+    },
+    {
+      "upper": "31",
+      "region_id": "160",
+      "region": "군포시",
+      "value": ""
+    },
+    {
+      "upper": "31",
+      "region_id": "170",
+      "region": "의왕시",
+      "value": ""
+    },
+    {
+      "upper": "31",
+      "region_id": "180",
+      "region": "하남시",
+      "value": ""
+    },
+    {
+      "upper": "31",
+      "region_id": "191",
+      "region": "용인시 처인구",
+      "value": ""
+    },
+    {
+      "upper": "31",
+      "region_id": "192",
+      "region": "용인시 기흥구",
+      "value": ""
+    },
+    {
+      "upper": "31",
+      "region_id": "193",
+      "region": "용인시 수지구",
+      "value": ""
+    },
+    {
+      "upper": "31",
+      "region_id": "200",
+      "region": "파주시",
+      "value": ""
+    },
+    {
+      "upper": "31",
+      "region_id": "210",
+      "region": "이천시",
+      "value": ""
+    },
+    {
+      "upper": "31",
+      "region_id": "220",
+      "region": "안성시",
+      "value": ""
+    },
+    {
+      "upper": "31",
+      "region_id": "230",
+      "region": "김포시",
+      "value": ""
+    },
+    {
+      "upper": "31",
+      "region_id": "240",
+      "region": "화성시",
+      "value": ""
+    },
+    {
+      "upper": "31",
+      "region_id": "250",
+      "region": "광주시",
+      "value": ""
+    },
+    {
+      "upper": "31",
+      "region_id": "260",
+      "region": "양주시",
+      "value": ""
+    },
+    {
+      "upper": "31",
+      "region_id": "270",
+      "region": "포천시",
+      "value": ""
+    },
+    {
+      "upper": "31",
+      "region_id": "280",
+      "region": "여주시",
+      "value": ""
+    },
+    {
+      "upper": "31",
+      "region_id": "550",
+      "region": "연천군",
+      "value": ""
+    },
+    {
+      "upper": "31",
+      "region_id": "570",
+      "region": "가평군",
+      "value": ""
+    },
+    {
+      "upper": "31",
+      "region_id": "580",
+      "region": "양평군",
+      "value": ""
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6461b3b35ae167205ec546d7"
+  },
+  "id": "35",
+  "name": "전라북도",
+  "sub": [
+    {
+      "upper": "35",
+      "region_id": "011",
+      "region": "전주시 완산구",
+      "value": ""
+    },
+    {
+      "upper": "35",
+      "region_id": "012",
+      "region": "전주시 덕진구",
+      "value": ""
+    },
+    {
+      "upper": "35",
+      "region_id": "020",
+      "region": "군산시",
+      "value": ""
+    },
+    {
+      "upper": "35",
+      "region_id": "030",
+      "region": "익산시",
+      "value": ""
+    },
+    {
+      "upper": "35",
+      "region_id": "040",
+      "region": "정읍시",
+      "value": ""
+    },
+    {
+      "upper": "35",
+      "region_id": "050",
+      "region": "남원시",
+      "value": ""
+    },
+    {
+      "upper": "35",
+      "region_id": "060",
+      "region": "김제시",
+      "value": ""
+    },
+    {
+      "upper": "35",
+      "region_id": "510",
+      "region": "완주군",
+      "value": ""
+    },
+    {
+      "upper": "35",
+      "region_id": "520",
+      "region": "진안군",
+      "value": ""
+    },
+    {
+      "upper": "35",
+      "region_id": "530",
+      "region": "무주군",
+      "value": ""
+    },
+    {
+      "upper": "35",
+      "region_id": "540",
+      "region": "장수군",
+      "value": ""
+    },
+    {
+      "upper": "35",
+      "region_id": "550",
+      "region": "임실군",
+      "value": ""
+    },
+    {
+      "upper": "35",
+      "region_id": "560",
+      "region": "순창군",
+      "value": ""
+    },
+    {
+      "upper": "35",
+      "region_id": "570",
+      "region": "고창군",
+      "value": ""
+    },
+    {
+      "upper": "35",
+      "region_id": "580",
+      "region": "부안군",
+      "value": ""
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6461b3b35ae167205ec546db"
+  },
+  "id": "39",
+  "name": "제주특별자치도",
+  "sub": [
+    {
+      "upper": "39",
+      "region_id": "010",
+      "region": "제주시",
+      "value": ""
+    },
+    {
+      "upper": "39",
+      "region_id": "020",
+      "region": "서귀포시",
+      "value": ""
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6461b3b35ae167205ec546cb"
+  },
+  "id": "11",
+  "name": "서울특별시",
+  "sub": [
+    {
+      "upper": "11",
+      "region_id": "010",
+      "region": "종로구",
+      "value": ""
+    },
+    {
+      "upper": "11",
+      "region_id": "020",
+      "region": "중구",
+      "value": ""
+    },
+    {
+      "upper": "11",
+      "region_id": "030",
+      "region": "용산구",
+      "value": ""
+    },
+    {
+      "upper": "11",
+      "region_id": "040",
+      "region": "성동구",
+      "value": ""
+    },
+    {
+      "upper": "11",
+      "region_id": "050",
+      "region": "광진구",
+      "value": ""
+    },
+    {
+      "upper": "11",
+      "region_id": "060",
+      "region": "동대문구",
+      "value": ""
+    },
+    {
+      "upper": "11",
+      "region_id": "070",
+      "region": "중랑구",
+      "value": ""
+    },
+    {
+      "upper": "11",
+      "region_id": "080",
+      "region": "성북구",
+      "value": ""
+    },
+    {
+      "upper": "11",
+      "region_id": "090",
+      "region": "강북구",
+      "value": ""
+    },
+    {
+      "upper": "11",
+      "region_id": "100",
+      "region": "도봉구",
+      "value": ""
+    },
+    {
+      "upper": "11",
+      "region_id": "110",
+      "region": "노원구",
+      "value": ""
+    },
+    {
+      "upper": "11",
+      "region_id": "120",
+      "region": "은평구",
+      "value": ""
+    },
+    {
+      "upper": "11",
+      "region_id": "130",
+      "region": "서대문구",
+      "value": ""
+    },
+    {
+      "upper": "11",
+      "region_id": "140",
+      "region": "마포구",
+      "value": ""
+    },
+    {
+      "upper": "11",
+      "region_id": "150",
+      "region": "양천구",
+      "value": ""
+    },
+    {
+      "upper": "11",
+      "region_id": "160",
+      "region": "강서구",
+      "value": ""
+    },
+    {
+      "upper": "11",
+      "region_id": "170",
+      "region": "구로구",
+      "value": ""
+    },
+    {
+      "upper": "11",
+      "region_id": "180",
+      "region": "금천구",
+      "value": ""
+    },
+    {
+      "upper": "11",
+      "region_id": "190",
+      "region": "영등포구",
+      "value": ""
+    },
+    {
+      "upper": "11",
+      "region_id": "200",
+      "region": "동작구",
+      "value": ""
+    },
+    {
+      "upper": "11",
+      "region_id": "210",
+      "region": "관악구",
+      "value": ""
+    },
+    {
+      "upper": "11",
+      "region_id": "220",
+      "region": "서초구",
+      "value": ""
+    },
+    {
+      "upper": "11",
+      "region_id": "230",
+      "region": "강남구",
+      "value": ""
+    },
+    {
+      "upper": "11",
+      "region_id": "240",
+      "region": "송파구",
+      "value": ""
+    },
+    {
+      "upper": "11",
+      "region_id": "250",
+      "region": "강동구",
+      "value": ""
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6461b3b35ae167205ec546cf"
+  },
+  "id": "24",
+  "name": "광주광역시",
+  "sub": [
+    {
+      "upper": "24",
+      "region_id": "010",
+      "region": "동구",
+      "value": ""
+    },
+    {
+      "upper": "24",
+      "region_id": "020",
+      "region": "서구",
+      "value": ""
+    },
+    {
+      "upper": "24",
+      "region_id": "030",
+      "region": "남구",
+      "value": ""
+    },
+    {
+      "upper": "24",
+      "region_id": "040",
+      "region": "북구",
+      "value": ""
+    },
+    {
+      "upper": "24",
+      "region_id": "050",
+      "region": "광산구",
+      "value": ""
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6461b3b35ae167205ec546d5"
+  },
+  "id": "33",
+  "name": "충청북도",
+  "sub": [
+    {
+      "upper": "33",
+      "region_id": "020",
+      "region": "충주시",
+      "value": ""
+    },
+    {
+      "upper": "33",
+      "region_id": "030",
+      "region": "제천시",
+      "value": ""
+    },
+    {
+      "upper": "33",
+      "region_id": "041",
+      "region": "청주시 상당구",
+      "value": ""
+    },
+    {
+      "upper": "33",
+      "region_id": "042",
+      "region": "청주시 서원구",
+      "value": ""
+    },
+    {
+      "upper": "33",
+      "region_id": "043",
+      "region": "청주시 흥덕구",
+      "value": ""
+    },
+    {
+      "upper": "33",
+      "region_id": "044",
+      "region": "청주시 청원구",
+      "value": ""
+    },
+    {
+      "upper": "33",
+      "region_id": "520",
+      "region": "보은군",
+      "value": ""
+    },
+    {
+      "upper": "33",
+      "region_id": "530",
+      "region": "옥천군",
+      "value": ""
+    },
+    {
+      "upper": "33",
+      "region_id": "540",
+      "region": "영동군",
+      "value": ""
+    },
+    {
+      "upper": "33",
+      "region_id": "550",
+      "region": "진천군",
+      "value": ""
+    },
+    {
+      "upper": "33",
+      "region_id": "560",
+      "region": "괴산군",
+      "value": ""
+    },
+    {
+      "upper": "33",
+      "region_id": "570",
+      "region": "음성군",
+      "value": ""
+    },
+    {
+      "upper": "33",
+      "region_id": "580",
+      "region": "단양군",
+      "value": ""
+    },
+    {
+      "upper": "33",
+      "region_id": "590",
+      "region": "증평군",
+      "value": ""
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6461b3b35ae167205ec546d8"
+  },
+  "id": "36",
+  "name": "전라남도",
+  "sub": [
+    {
+      "upper": "36",
+      "region_id": "010",
+      "region": "목포시",
+      "value": ""
+    },
+    {
+      "upper": "36",
+      "region_id": "020",
+      "region": "여수시",
+      "value": ""
+    },
+    {
+      "upper": "36",
+      "region_id": "030",
+      "region": "순천시",
+      "value": ""
+    },
+    {
+      "upper": "36",
+      "region_id": "040",
+      "region": "나주시",
+      "value": ""
+    },
+    {
+      "upper": "36",
+      "region_id": "060",
+      "region": "광양시",
+      "value": ""
+    },
+    {
+      "upper": "36",
+      "region_id": "510",
+      "region": "담양군",
+      "value": ""
+    },
+    {
+      "upper": "36",
+      "region_id": "520",
+      "region": "곡성군",
+      "value": ""
+    },
+    {
+      "upper": "36",
+      "region_id": "530",
+      "region": "구례군",
+      "value": ""
+    },
+    {
+      "upper": "36",
+      "region_id": "550",
+      "region": "고흥군",
+      "value": ""
+    },
+    {
+      "upper": "36",
+      "region_id": "560",
+      "region": "보성군",
+      "value": ""
+    },
+    {
+      "upper": "36",
+      "region_id": "570",
+      "region": "화순군",
+      "value": ""
+    },
+    {
+      "upper": "36",
+      "region_id": "580",
+      "region": "장흥군",
+      "value": ""
+    },
+    {
+      "upper": "36",
+      "region_id": "590",
+      "region": "강진군",
+      "value": ""
+    },
+    {
+      "upper": "36",
+      "region_id": "600",
+      "region": "해남군",
+      "value": ""
+    },
+    {
+      "upper": "36",
+      "region_id": "610",
+      "region": "영암군",
+      "value": ""
+    },
+    {
+      "upper": "36",
+      "region_id": "620",
+      "region": "무안군",
+      "value": ""
+    },
+    {
+      "upper": "36",
+      "region_id": "630",
+      "region": "함평군",
+      "value": ""
+    },
+    {
+      "upper": "36",
+      "region_id": "640",
+      "region": "영광군",
+      "value": ""
+    },
+    {
+      "upper": "36",
+      "region_id": "650",
+      "region": "장성군",
+      "value": ""
+    },
+    {
+      "upper": "36",
+      "region_id": "660",
+      "region": "완도군",
+      "value": ""
+    },
+    {
+      "upper": "36",
+      "region_id": "670",
+      "region": "진도군",
+      "value": ""
+    },
+    {
+      "upper": "36",
+      "region_id": "680",
+      "region": "신안군",
+      "value": ""
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6461b3b35ae167205ec546ce"
+  },
+  "id": "23",
+  "name": "인천광역시",
+  "sub": [
+    {
+      "upper": "23",
+      "region_id": "010",
+      "region": "중구",
+      "value": ""
+    },
+    {
+      "upper": "23",
+      "region_id": "020",
+      "region": "동구",
+      "value": ""
+    },
+    {
+      "upper": "23",
+      "region_id": "040",
+      "region": "연수구",
+      "value": ""
+    },
+    {
+      "upper": "23",
+      "region_id": "050",
+      "region": "남동구",
+      "value": ""
+    },
+    {
+      "upper": "23",
+      "region_id": "060",
+      "region": "부평구",
+      "value": ""
+    },
+    {
+      "upper": "23",
+      "region_id": "070",
+      "region": "계양구",
+      "value": ""
+    },
+    {
+      "upper": "23",
+      "region_id": "080",
+      "region": "서구",
+      "value": ""
+    },
+    {
+      "upper": "23",
+      "region_id": "090",
+      "region": "미추홀구",
+      "value": ""
+    },
+    {
+      "upper": "23",
+      "region_id": "510",
+      "region": "강화군",
+      "value": ""
+    },
+    {
+      "upper": "23",
+      "region_id": "520",
+      "region": "옹진군",
+      "value": ""
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6461b3b35ae167205ec546d6"
+  },
+  "id": "34",
+  "name": "충청남도",
+  "sub": [
+    {
+      "upper": "34",
+      "region_id": "011",
+      "region": "천안시 동남구",
+      "value": ""
+    },
+    {
+      "upper": "34",
+      "region_id": "012",
+      "region": "천안시 서북구",
+      "value": ""
+    },
+    {
+      "upper": "34",
+      "region_id": "020",
+      "region": "공주시",
+      "value": ""
+    },
+    {
+      "upper": "34",
+      "region_id": "030",
+      "region": "보령시",
+      "value": ""
+    },
+    {
+      "upper": "34",
+      "region_id": "040",
+      "region": "아산시",
+      "value": ""
+    },
+    {
+      "upper": "34",
+      "region_id": "050",
+      "region": "서산시",
+      "value": ""
+    },
+    {
+      "upper": "34",
+      "region_id": "060",
+      "region": "논산시",
+      "value": ""
+    },
+    {
+      "upper": "34",
+      "region_id": "070",
+      "region": "계룡시",
+      "value": ""
+    },
+    {
+      "upper": "34",
+      "region_id": "080",
+      "region": "당진시",
+      "value": ""
+    },
+    {
+      "upper": "34",
+      "region_id": "510",
+      "region": "금산군",
+      "value": ""
+    },
+    {
+      "upper": "34",
+      "region_id": "530",
+      "region": "부여군",
+      "value": ""
+    },
+    {
+      "upper": "34",
+      "region_id": "540",
+      "region": "서천군",
+      "value": ""
+    },
+    {
+      "upper": "34",
+      "region_id": "550",
+      "region": "청양군",
+      "value": ""
+    },
+    {
+      "upper": "34",
+      "region_id": "560",
+      "region": "홍성군",
+      "value": ""
+    },
+    {
+      "upper": "34",
+      "region_id": "570",
+      "region": "예산군",
+      "value": ""
+    },
+    {
+      "upper": "34",
+      "region_id": "580",
+      "region": "태안군",
+      "value": ""
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6461b3b35ae167205ec546d1"
+  },
+  "id": "26",
+  "name": "울산광역시",
+  "sub": [
+    {
+      "upper": "26",
+      "region_id": "010",
+      "region": "중구",
+      "value": ""
+    },
+    {
+      "upper": "26",
+      "region_id": "020",
+      "region": "남구",
+      "value": ""
+    },
+    {
+      "upper": "26",
+      "region_id": "030",
+      "region": "동구",
+      "value": ""
+    },
+    {
+      "upper": "26",
+      "region_id": "040",
+      "region": "북구",
+      "value": ""
+    },
+    {
+      "upper": "26",
+      "region_id": "510",
+      "region": "울주군",
+      "value": ""
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6461b3b35ae167205ec546d4"
+  },
+  "id": "32",
+  "name": "강원도",
+  "sub": [
+    {
+      "upper": "32",
+      "region_id": "010",
+      "region": "춘천시",
+      "value": ""
+    },
+    {
+      "upper": "32",
+      "region_id": "020",
+      "region": "원주시",
+      "value": ""
+    },
+    {
+      "upper": "32",
+      "region_id": "030",
+      "region": "강릉시",
+      "value": ""
+    },
+    {
+      "upper": "32",
+      "region_id": "040",
+      "region": "동해시",
+      "value": ""
+    },
+    {
+      "upper": "32",
+      "region_id": "050",
+      "region": "태백시",
+      "value": ""
+    },
+    {
+      "upper": "32",
+      "region_id": "060",
+      "region": "속초시",
+      "value": ""
+    },
+    {
+      "upper": "32",
+      "region_id": "070",
+      "region": "삼척시",
+      "value": ""
+    },
+    {
+      "upper": "32",
+      "region_id": "510",
+      "region": "홍천군",
+      "value": ""
+    },
+    {
+      "upper": "32",
+      "region_id": "520",
+      "region": "횡성군",
+      "value": ""
+    },
+    {
+      "upper": "32",
+      "region_id": "530",
+      "region": "영월군",
+      "value": ""
+    },
+    {
+      "upper": "32",
+      "region_id": "540",
+      "region": "평창군",
+      "value": ""
+    },
+    {
+      "upper": "32",
+      "region_id": "550",
+      "region": "정선군",
+      "value": ""
+    },
+    {
+      "upper": "32",
+      "region_id": "560",
+      "region": "철원군",
+      "value": ""
+    },
+    {
+      "upper": "32",
+      "region_id": "570",
+      "region": "화천군",
+      "value": ""
+    },
+    {
+      "upper": "32",
+      "region_id": "580",
+      "region": "양구군",
+      "value": ""
+    },
+    {
+      "upper": "32",
+      "region_id": "590",
+      "region": "인제군",
+      "value": ""
+    },
+    {
+      "upper": "32",
+      "region_id": "600",
+      "region": "고성군",
+      "value": ""
+    },
+    {
+      "upper": "32",
+      "region_id": "610",
+      "region": "양양군",
+      "value": ""
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6461b3b35ae167205ec546d9"
+  },
+  "id": "37",
+  "name": "경상북도",
+  "sub": [
+    {
+      "upper": "37",
+      "region_id": "011",
+      "region": "포항시 남구",
+      "value": ""
+    },
+    {
+      "upper": "37",
+      "region_id": "012",
+      "region": "포항시 북구",
+      "value": ""
+    },
+    {
+      "upper": "37",
+      "region_id": "020",
+      "region": "경주시",
+      "value": ""
+    },
+    {
+      "upper": "37",
+      "region_id": "030",
+      "region": "김천시",
+      "value": ""
+    },
+    {
+      "upper": "37",
+      "region_id": "040",
+      "region": "안동시",
+      "value": ""
+    },
+    {
+      "upper": "37",
+      "region_id": "050",
+      "region": "구미시",
+      "value": ""
+    },
+    {
+      "upper": "37",
+      "region_id": "060",
+      "region": "영주시",
+      "value": ""
+    },
+    {
+      "upper": "37",
+      "region_id": "070",
+      "region": "영천시",
+      "value": ""
+    },
+    {
+      "upper": "37",
+      "region_id": "080",
+      "region": "상주시",
+      "value": ""
+    },
+    {
+      "upper": "37",
+      "region_id": "090",
+      "region": "문경시",
+      "value": ""
+    },
+    {
+      "upper": "37",
+      "region_id": "100",
+      "region": "경산시",
+      "value": ""
+    },
+    {
+      "upper": "37",
+      "region_id": "510",
+      "region": "군위군",
+      "value": ""
+    },
+    {
+      "upper": "37",
+      "region_id": "520",
+      "region": "의성군",
+      "value": ""
+    },
+    {
+      "upper": "37",
+      "region_id": "530",
+      "region": "청송군",
+      "value": ""
+    },
+    {
+      "upper": "37",
+      "region_id": "540",
+      "region": "영양군",
+      "value": ""
+    },
+    {
+      "upper": "37",
+      "region_id": "550",
+      "region": "영덕군",
+      "value": ""
+    },
+    {
+      "upper": "37",
+      "region_id": "560",
+      "region": "청도군",
+      "value": ""
+    },
+    {
+      "upper": "37",
+      "region_id": "570",
+      "region": "고령군",
+      "value": ""
+    },
+    {
+      "upper": "37",
+      "region_id": "580",
+      "region": "성주군",
+      "value": ""
+    },
+    {
+      "upper": "37",
+      "region_id": "590",
+      "region": "칠곡군",
+      "value": ""
+    },
+    {
+      "upper": "37",
+      "region_id": "600",
+      "region": "예천군",
+      "value": ""
+    },
+    {
+      "upper": "37",
+      "region_id": "610",
+      "region": "봉화군",
+      "value": ""
+    },
+    {
+      "upper": "37",
+      "region_id": "620",
+      "region": "울진군",
+      "value": ""
+    },
+    {
+      "upper": "37",
+      "region_id": "630",
+      "region": "울릉군",
+      "value": ""
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6461b3b35ae167205ec546da"
+  },
+  "id": "38",
+  "name": "경상남도",
+  "sub": [
+    {
+      "upper": "38",
+      "region_id": "030",
+      "region": "진주시",
+      "value": ""
+    },
+    {
+      "upper": "38",
+      "region_id": "050",
+      "region": "통영시",
+      "value": ""
+    },
+    {
+      "upper": "38",
+      "region_id": "060",
+      "region": "사천시",
+      "value": ""
+    },
+    {
+      "upper": "38",
+      "region_id": "070",
+      "region": "김해시",
+      "value": ""
+    },
+    {
+      "upper": "38",
+      "region_id": "080",
+      "region": "밀양시",
+      "value": ""
+    },
+    {
+      "upper": "38",
+      "region_id": "090",
+      "region": "거제시",
+      "value": ""
+    },
+    {
+      "upper": "38",
+      "region_id": "100",
+      "region": "양산시",
+      "value": ""
+    },
+    {
+      "upper": "38",
+      "region_id": "111",
+      "region": "창원시 의창구",
+      "value": ""
+    },
+    {
+      "upper": "38",
+      "region_id": "112",
+      "region": "창원시 성산구",
+      "value": ""
+    },
+    {
+      "upper": "38",
+      "region_id": "113",
+      "region": "창원시 마산합포구",
+      "value": ""
+    },
+    {
+      "upper": "38",
+      "region_id": "114",
+      "region": "창원시 마산회원구",
+      "value": ""
+    },
+    {
+      "upper": "38",
+      "region_id": "115",
+      "region": "창원시 진해구",
+      "value": ""
+    },
+    {
+      "upper": "38",
+      "region_id": "510",
+      "region": "의령군",
+      "value": ""
+    },
+    {
+      "upper": "38",
+      "region_id": "520",
+      "region": "함안군",
+      "value": ""
+    },
+    {
+      "upper": "38",
+      "region_id": "530",
+      "region": "창녕군",
+      "value": ""
+    },
+    {
+      "upper": "38",
+      "region_id": "540",
+      "region": "고성군",
+      "value": ""
+    },
+    {
+      "upper": "38",
+      "region_id": "550",
+      "region": "남해군",
+      "value": ""
+    },
+    {
+      "upper": "38",
+      "region_id": "560",
+      "region": "하동군",
+      "value": ""
+    },
+    {
+      "upper": "38",
+      "region_id": "570",
+      "region": "산청군",
+      "value": ""
+    },
+    {
+      "upper": "38",
+      "region_id": "580",
+      "region": "함양군",
+      "value": ""
+    },
+    {
+      "upper": "38",
+      "region_id": "590",
+      "region": "거창군",
+      "value": ""
+    },
+    {
+      "upper": "38",
+      "region_id": "600",
+      "region": "합천군",
+      "value": ""
+    }
+  ]
+}]
