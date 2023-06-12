@@ -211,7 +211,7 @@ export default function Kakaomap({colors, year, data}) {
   
     return(
         <Map elevation={4} id="map"><Showswitch />
-        {mobile&&<Box sx={{ position: 'absolute', bottom: 16, left: 16,  }}>
+        {mobile&&<Box sx={{ position: 'absolute', top: 16, left: 16,  }}>
         <Fab color='primary' sx={{background:property.mainColor, color:property.white}} onClick={() => {
             window.scrollTo({
                     top: 760,
