@@ -7,7 +7,7 @@ import { styled } from '@mui/material/styles';
 import Grid from '@mui/material/Grid';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios'
-import {  useEffect } from 'react';
+import { useEffect } from 'react';
 import {DragDropContext, Droppable, Draggable} from "react-beautiful-dnd";
 
 
@@ -75,7 +75,7 @@ export default function Mainview({year, setYear, colors, shapes, datasets,  setD
   return(
     <Main>
       <Box>
-        <Kakaomap year={year} colors={colors} datasets={datasets}/>
+        <Kakaomap data={pop.data} year={year}/>
         <Yearbar setYear={setYear}/>
       </Box>
       <DragDropContext onDragEnd={onDragEnd}>

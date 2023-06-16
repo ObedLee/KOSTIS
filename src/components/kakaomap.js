@@ -13,6 +13,10 @@ import Box from '@mui/material/Box';
 import KeyboardArrowDownRoundedIcon from '@mui/icons-material/KeyboardArrowDownRounded';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
+import { useQuery } from '@tanstack/react-query';
+import axios from 'axios'
+import Chart from 'chart.js/auto';
+import { Bubble } from "react-chartjs-2";
 
 const { kakao } = window;
 
@@ -26,7 +30,9 @@ const Map = styled(Paper)(({theme}) => ({
     }
   }));
 
-export default function Kakaomap({colors, year, data}) {
+
+
+export default function Kakaomap({data, year}) {
 
     const [resize, setResize] = useState(true)
 
@@ -39,9 +45,45 @@ export default function Kakaomap({colors, year, data}) {
     const [cent, setCent] = useState([35.880147491722404, 127.7250280907668])
     const [level, setLevel] = useState(13)
     const [sido, setSido] = useState()
+    const [pop, setPop] = useState([])
+    const [lable, setLable] = useState([])
 
+    const url = 'https://kostis-server.run.goorm.site/'
+  
+    let district = useQuery(['district'], ()=>
+      axios.get(url+'maps').then((result)=>{
+      const temp = {}
+      result.data.map((d, i)=>{
+          temp[d.id] = d.name
+      })
+      return temp
+    }))
+
+useEffect(()=>{
+
+    let temp = []
+    let temp2 = []
+
+    for (const key in district.data){
+        data && data.map((dt)=>{
+          if (dt.C1_NM === district.data[key] && dt.PRD_DE == year)
+          {
+            temp = [...temp, district.data[key]]
+            temp2 = [...temp2, dt.DT]
+          }
+        })
+      }
+
+      setLable(temp)
+      setPop(temp2)
+
+      console.log(lable)
+      console.log(pop)
+},[data, year])
 
     useEffect(() => {
+
+
         window.addEventListener('resize', handelResize)
 
         let geoPoly
@@ -73,8 +115,6 @@ export default function Kakaomap({colors, year, data}) {
                 }
                 areaInfo.path = [...area];
                 areas.push(areaInfo);
-
-                console.log(areas)
             } 
         }
 
@@ -103,6 +143,7 @@ export default function Kakaomap({colors, year, data}) {
                 areas.push(areaInfo);
             } 
         }
+
         zoom?setgeocityPoly():setgeomapPoly()
         // 객체 생성 완료
 
@@ -204,8 +245,7 @@ export default function Kakaomap({colors, year, data}) {
             kakao.maps.event.removeListener(map, 'mousemove');
         }
     },[zoom, cent, level, resize]);
-
-
+    
     const theme = useTheme();
     const mobile = useMediaQuery(theme.breakpoints.down('md'));
   
