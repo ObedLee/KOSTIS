@@ -75,7 +75,7 @@ export default function Chartpage({open, setOpen, name, setDatasets, datasets, d
   const handleClose = () => {
     setOpen(false);
     setTempC(null)
-    setTempS()
+    setTempS("Bar")
   };
 
   const handleReset = () => {
@@ -91,7 +91,7 @@ export default function Chartpage({open, setOpen, name, setDatasets, datasets, d
     const copy3 = [...shapes, tempS]
     setShape([...copy3])
     setTempC(null)
-    setTempS()
+    setTempS("Bar")
     setOpen(false);
   };
 

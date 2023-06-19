@@ -54,8 +54,13 @@ const IOSSwitch = styled((props) => (
     },
   }));
 
-  export default function Showswitch() {
-    return (
-      <IOSSwitch sx={{ m: 1 }} defaultChecked />
+  export default function Showswitch({on, setOn}) {
+
+  
+
+    const handleChange = () => setOn(!on)
+    
+    return(
+      <IOSSwitch sx={{ m: 1 }} onChange={handleChange} defaultChecked />
     );
   }
