@@ -7,7 +7,7 @@ import { useState } from 'react';
 export default function Mainpage() {
   const [open, setOpen] = useState(false);
   const [year, setYear] = useState(0)
-  const [colors, setColor] = useState(["#faa"])
+  const [colors, setColor] = useState(["#fa1"])
   const [shapes, setShape] = useState(['Bar'])
   const [datasets, setDatasets] = useState([])
 
