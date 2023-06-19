@@ -185,9 +185,9 @@ export default function Kakaomap({data, year}) {
     // }
     let color = {}
     for (var j=0; j < pop.length; j++){
-        if (pop[j] > max)   color[lable[j]] = "#F00"
+        if (pop[j] > max)   color[lable[j]] = "#50E"
         else if (pop[j] < min)  color[lable[j]] = "#FFF"
-        else color[lable[j]] = `rgb(255, ${255-Math.abs(51*((pop[j]-min)*5/(2*stdDev)))},${255-Math.abs(51*((pop[j]-min)*5/(2*stdDev)))})`
+        else color[lable[j]] = `rgb(${255-Math.abs(31*((pop[j]-min)*6/(2*stdDev)))}, ${186-Math.abs(31*((pop[j]-min)*6/(2*stdDev)))}, 238)`
     }
     //   }
     // for (var i=0; i < pop.length; i++){
